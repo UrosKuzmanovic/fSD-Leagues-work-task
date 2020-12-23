@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Entity/Nastup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/NastupRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Added Entities">
+      <change afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/IgracController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/KlubController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/MestoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/igrac/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/klub/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mesto/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utakmica/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
@@ -156,8 +164,17 @@
       <option name="presentableId" value="Default" />
       <updated>1608293002342</updated>
       <workItem from="1608293003472" duration="1811000" />
-      <workItem from="1608650231681" duration="5240000" />
+      <workItem from="1608650231681" duration="6229000" />
+      <workItem from="1608737103605" duration="2513000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Entities">
+      <created>1608657273108</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608657273108</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,5 +194,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Added Entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Entities" />
   </component>
 </project>
