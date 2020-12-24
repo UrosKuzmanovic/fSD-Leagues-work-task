@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Club list{% endblock %}
+
+{% block body %}
+    <table>
+        <th>
+        <td>Name</td>
+        <td>Place</td>
+        <td></td>
+        <td></td>
+        </th>
+        {% for club in clubs %}
+            <tr>
+                <td>{{ club.getName() }}</td>
+                <td>{{ club.getPlace.getName() }}</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

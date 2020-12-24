@@ -1,30 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Početna strana{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1>Dobro došli</h1>
-    <h2>Opcije:</h2>
+    <h1>Welcome!</h1>
+    <h2>Options:</h2>
     <table>
         <tr>
-            <td>Igrači</td>
-            <td><a href="{{ path('lista_igraca') }}">Izlistaj</a></td>
-            <td><a href="{{ path('unesi_igraca') }}">Unesi</a></td>
+            <td>Players</td>
+            <td><a href="{{ path('player_list') }}">List</a></td>
+            <td><a href="{{ path('add_player') }}">Add</a></td>
         </tr>
         <tr>
-            <td>Klubovi</td>
-            <td><a href="{{ path('lista_klubova') }}">Izlistaj</a></td>
-            <td><a href="{{ path('unesi_klub') }}">Unesi</a></td>
+            <td>Clubs</td>
+            <td><a href="{{ path('club_list') }}">List</a></td>
+            <td><a href="{{ path('add_club') }}">Add</a></td>
         </tr>
         <tr>
-            <td>Utakmice</td>
-            <td><a href="{{ path('lista_utakmica') }}">Izlistaj</a></td>
-            <td><a href="{{ path('unesi_utakmicu') }}">Unesi</a></td>
+            <td>Matches</td>
+            <td><a href="{{ path('match_list') }}">List</a></td>
+            <td><a href="{{ path('add_match') }}">Add</a></td>
         </tr>
         <tr>
-            <td>Mesta</td>
-            <td><a href="{{ path('lista_mesta') }}">Izlistaj</a></td>
-            <td><a href="{{ path('unesi_mesto') }}">Unesi</a></td>
+            <td>Place</td>
+            <td><a href="{{ path('place_list') }}">List</a></td>
+            <td><a href="{{ path('add_place') }}">Add</a></td>
         </tr>
     </table>
 {% endblock %}

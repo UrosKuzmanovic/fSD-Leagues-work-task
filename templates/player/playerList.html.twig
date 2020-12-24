@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Player list{% endblock %}
+
+{% block body %}
+    <table>
+        <th>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>JMBG</td>
+            <td>Date of birth</td>
+            <td>Position</td>
+            <td>Place</td>
+            <td>Club</td>
+            <td></td>
+            <td></td>
+        </th>
+        {% for player in players %}
+            <tr>
+                <td>{{ player.getFisrtName() }}</td>
+                <td>{{ player.getLastName() }}</td>
+                <td>{{ player.getJmbg() }}</td>
+                <td>{{ player.getDateOfBirth() | date('d/m/Y') }}</td>
+                <td>{{ player.getPosition() }}</td>
+                <td>{{ player.getPlace.getName() }}</td>
+                <td>{{ player.getClub.getName() }}</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

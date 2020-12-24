@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Added Controllers and Routes">
-      <change afterPath="$PROJECT_DIR$/templates/igrac/unesiIgraca.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/klub/unesiKlub.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mesto/unesiMesto.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/utakmica/unesiUtakmicu.html.twig" afterDir="false" />
+    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Created templates">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201224153050.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201224153203.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201224202916.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201224203559.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IgracController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/IgracController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/KlubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/KlubController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MestoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MestoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Utakmica.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Utakmica.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201222170921.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201222170921.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201222171219.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201222171219.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/IgracController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/KlubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MestoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MatchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Igrac.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Klub.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Club.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Mesto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Place.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Nastup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Performance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Pozicija.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Position.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Takmicenje.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Competition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Utakmica.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Match.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/IgracRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/KlubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClubRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MestoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlaceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/NastupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PozicijaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PositionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TakmicenjeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CompetitionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UtakmicaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MatchRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/igrac/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/igrac/listaIgraca.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/klub/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/klub/listaKlubova.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mesto/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mesto/listaMesta.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/utakmica/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utakmica/listaUtakmica.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/igrac/listaIgraca.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/playerList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/igrac/unesiIgraca.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/klub/listaKlubova.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/clubList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/klub/unesiKlub.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/addClub.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mesto/listaMesta.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/placeList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mesto/unesiMesto.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/addPlace.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utakmica/listaUtakmica.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/match/matchList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utakmica/unesiUtakmicu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/match/addMatch.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +195,7 @@
       <workItem from="1608293003472" duration="1811000" />
       <workItem from="1608650231681" duration="6229000" />
       <workItem from="1608737103605" duration="3816000" />
-      <workItem from="1608820518716" duration="2746000" />
+      <workItem from="1608820518716" duration="9502000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -193,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608740580758</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created templates">
+      <created>1608823524048</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608823524048</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +240,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added Entities" />
     <MESSAGE value="Added Controllers and Routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Controllers and Routes" />
+    <MESSAGE value="Created templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created templates" />
   </component>
 </project>
