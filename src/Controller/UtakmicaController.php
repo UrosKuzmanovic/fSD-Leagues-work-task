@@ -11,13 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UtakmicaController extends AbstractController
 {
+    private $utakmice;
+
     /**
      * @Route("/lista", name="lista_utakmica", methods={"GET"})
      */
     public function getListaUtakmica(): Response
     {
-        return $this->render('utakmica/index.html.twig', [
+        return $this->render(
+            'utakmica/listaUtakmica.html.twig', [
             'controller_name' => 'UtakmicaController',
+            'utakmice' => $this->utakmice
         ]);
     }
 
@@ -26,7 +30,8 @@ class UtakmicaController extends AbstractController
      */
     public function getUnesiUtakmicu(): Response
     {
-        return $this->render('utakmica/index.html.twig', [
+        return $this->render(
+            'utakmica/unesiUtakmicu.html.twig', [
             'controller_name' => 'UtakmicaController',
         ]);
     }

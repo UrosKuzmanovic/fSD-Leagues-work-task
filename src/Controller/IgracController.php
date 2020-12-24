@@ -11,13 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class IgracController extends AbstractController
 {
+    private $igraci;
+
     /**
      * @Route("/lista", name="lista_igraca", methods={"GET"})
      */
     public function getListaIgraca(): Response
     {
-        return $this->render('igrac/index.html.twig', [
+        return $this->render(
+            'igrac/listaIgraca.html.twig', [
             'controller_name' => 'IgracController',
+            'igraci' => $this->igraci
         ]);
     }
 
@@ -26,7 +30,8 @@ class IgracController extends AbstractController
      */
     public function getUnesiIgraca(): Response
     {
-        return $this->render('igrac/index.html.twig', [
+        return $this->render(
+            'igrac/unesiIgraca.html.twig', [
             'controller_name' => 'IgracController',
         ]);
     }

@@ -47,6 +47,16 @@ class Utakmica
      */
     private $nastupi;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $brojGolovaDomacin;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $brojGolovaGost;
+
     public function __construct()
     {
         $this->nastupi = new ArrayCollection();
@@ -133,5 +143,33 @@ class Utakmica
         }
 
         return $this;
+    }
+
+    public function getBrojGolovaDomacin(): ?int
+    {
+        return $this->brojGolovaDomacin;
+    }
+
+    public function setBrojGolovaDomacin(int $brojGolovaDomacin): self
+    {
+        $this->brojGolovaDomacin = $brojGolovaDomacin;
+
+        return $this;
+    }
+
+    public function getBrojGolovaGost(): ?int
+    {
+        return $this->brojGolovaGost;
+    }
+
+    public function setBrojGolovaGost(int $brojGolovaGost): self
+    {
+        $this->brojGolovaGost = $brojGolovaGost;
+
+        return $this;
+    }
+
+    public function getRezultat(){
+      return $this->brojGolovaDomacin." - ".$this->brojGolovaGost;
     }
 }

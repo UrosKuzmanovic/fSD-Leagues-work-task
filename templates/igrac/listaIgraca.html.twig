@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista igrača{% endblock %}
+
+{% block body %}
+    <table>
+        <th>
+            <td>Ime</td>
+            <td>Prezime</td>
+            <td>JMBG</td>
+            <td>Datum rođenja</td>
+            <td>Pozicija</td>
+            <td>Mesto</td>
+            <td>Klub</td>
+            <td></td>
+            <td></td>
+        </th>
+        {% for igrac in igraci %}
+            <tr>
+                <td>{{ igrac.getIme() }}</td>
+                <td>{{ igrac.getPrezime() }}</td>
+                <td>{{ igrac.getJmbg() }}</td>
+                <td>{{ igrac.getDatumRodj() | date('d/m/Y') }}</td>
+                <td>{{ igrac.getPozicija() }}</td>
+                <td>{{ igrac.getMesto.getNaziv() }}</td>
+                <td>{{ igrac.getKlub.getNaziv() }}</td>
+                <td>Izmeni</td>
+                <td>Obriši</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

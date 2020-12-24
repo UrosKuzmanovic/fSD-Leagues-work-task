@@ -11,13 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MestoController extends AbstractController
 {
+    private $mesta;
+
     /**
      * @Route("/lista", name="lista_mesta", methods={"GET"})
      */
     public function getListaMesta(): Response
     {
-        return $this->render('mesto/index.html.twig', [
+        return $this->render(
+            'mesto/listaMesta.html.twig', [
             'controller_name' => 'MestoController',
+            'mesta' => $this->mesta
         ]);
     }
 
@@ -26,7 +30,8 @@ class MestoController extends AbstractController
      */
     public function getMestoIgraca(): Response
     {
-        return $this->render('mesto/index.html.twig', [
+        return $this->render(
+            'mesto/unesiMesto.html.twig', [
             'controller_name' => 'MestoController',
         ]);
     }

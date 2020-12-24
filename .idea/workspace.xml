@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Added Entities">
-      <change afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/IgracController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/KlubController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/MestoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/igrac/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/klub/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mesto/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/utakmica/index.html.twig" afterDir="false" />
+    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Added Controllers and Routes">
+      <change afterPath="$PROJECT_DIR$/templates/igrac/unesiIgraca.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/klub/unesiKlub.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mesto/unesiMesto.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utakmica/unesiUtakmicu.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/IgracController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/IgracController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/KlubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/KlubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MestoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MestoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Utakmica.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Utakmica.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/igrac/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/igrac/listaIgraca.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/klub/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/klub/listaKlubova.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mesto/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mesto/listaMesta.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utakmica/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utakmica/listaUtakmica.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,9 +149,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/utakmica" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\utakmica" />
+      <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\mesto" />
+      <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\klub" />
+      <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\igrac" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -165,7 +176,8 @@
       <updated>1608293002342</updated>
       <workItem from="1608293003472" duration="1811000" />
       <workItem from="1608650231681" duration="6229000" />
-      <workItem from="1608737103605" duration="2513000" />
+      <workItem from="1608737103605" duration="3816000" />
+      <workItem from="1608820518716" duration="2746000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -174,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608657273108</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Controllers and Routes">
+      <created>1608740580758</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608740580758</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +214,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added Entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Entities" />
+    <MESSAGE value="Added Controllers and Routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Controllers and Routes" />
   </component>
 </project>

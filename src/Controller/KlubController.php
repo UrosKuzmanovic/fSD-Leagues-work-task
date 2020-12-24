@@ -11,13 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class KlubController extends AbstractController
 {
+    private $klubovi;
+
     /**
      * @Route("/lista", name="lista_klubova", methods={"GET"})
      */
     public function getListaKlubova(): Response
     {
-        return $this->render('klub/index.html.twig', [
+        return $this->render(
+            'klub/listaKlubova.html.twig', [
             'controller_name' => 'KlubController',
+            'klubovi' => $this->klubovi
         ]);
     }
 
@@ -26,7 +30,8 @@ class KlubController extends AbstractController
      */
     public function getUnesiKlub(): Response
     {
-        return $this->render('klub/index.html.twig', [
+        return $this->render(
+            'klub/unesiKlub.html.twig', [
             'controller_name' => 'KlubController',
         ]);
     }

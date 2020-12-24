@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista klubova{% endblock %}
+
+{% block body %}
+    <table>
+        <th>
+        <td>Naziv</td>
+        <td>Mesto</td>
+        <td></td>
+        <td></td>
+        </th>
+        {% for klub in klubovi %}
+            <tr>
+                <td>{{ klub.getNaziv() }}</td>
+                <td>{{ klub.getMesto.getNaziv() }}</td>
+                <td>Izmeni</td>
+                <td>Obriši</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

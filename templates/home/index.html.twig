@@ -3,28 +3,28 @@
 {% block title %}Početna strana{% endblock %}
 
 {% block body %}
-    <h1>Dobro dosli</h1>
+    <h1>Dobro došli</h1>
     <h2>Opcije:</h2>
     <table>
         <tr>
-            <td>Igraci</td>
-            <td>Izlistaj</td>
-            <td>Unesi</td>
+            <td>Igrači</td>
+            <td><a href="{{ path('lista_igraca') }}">Izlistaj</a></td>
+            <td><a href="{{ path('unesi_igraca') }}">Unesi</a></td>
         </tr>
         <tr>
             <td>Klubovi</td>
-            <td>Izlistaj</td>
-            <td>Unesi</td>
+            <td><a href="{{ path('lista_klubova') }}">Izlistaj</a></td>
+            <td><a href="{{ path('unesi_klub') }}">Unesi</a></td>
         </tr>
         <tr>
             <td>Utakmice</td>
-            <td>Izlistaj</td>
-            <td>Unesi</td>
+            <td><a href="{{ path('lista_utakmica') }}">Izlistaj</a></td>
+            <td><a href="{{ path('unesi_utakmicu') }}">Unesi</a></td>
         </tr>
         <tr>
             <td>Mesta</td>
-            <td>Izlistaj</td>
-            <td>Unesi</td>
+            <td><a href="{{ path('lista_mesta') }}">Izlistaj</a></td>
+            <td><a href="{{ path('unesi_mesto') }}">Unesi</a></td>
         </tr>
     </table>
 {% endblock %}
