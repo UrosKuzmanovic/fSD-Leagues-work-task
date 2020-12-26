@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ place.getPtt() }}</td>
                 <td>{{ place.getName() }}</td>
-                <td>Edit</td>
+                <td><a href="{{ path('get_edit_place', {'id': place.getID()}) }}">Edit</a></td>
                 <td>Delete</td>
             </tr>
         {% endfor %}

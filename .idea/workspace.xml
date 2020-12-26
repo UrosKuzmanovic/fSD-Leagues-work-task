@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Add new place function">
+    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Get all places function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/PlaceManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlaceManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/place/addPlace.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/addPlace.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/place/placeList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/placeList.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +173,7 @@
       <workItem from="1608820518716" duration="9786000" />
       <workItem from="1608890931941" duration="9590000" />
       <workItem from="1608939376345" duration="2753000" />
-      <workItem from="1608975023281" duration="11125000" />
+      <workItem from="1608975023281" duration="13674000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -208,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608984885138</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Get all places function">
+      <created>1608993676728</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608993676728</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +242,8 @@
     <MESSAGE value="Created templates" />
     <MESSAGE value="Renamed code to english" />
     <MESSAGE value="Add new place function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new place function" />
+    <MESSAGE value="Get all places function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get all places function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

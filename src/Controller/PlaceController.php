@@ -57,8 +57,34 @@ class PlaceController extends AbstractController
      */
     public function addPlace(Request $request, SerializerInterface $serializer): Response
     {
-        $result = $this->placeManager->addNewPlace($newPlace = $request->get("data"));
+        $result = $this->placeManager->addNewPlace($newPlace = $request->get('data'));
+        return new JsonResponse($serializer->serialize($result, 'json'));
+    }
 
+    /**
+     * @Route("/edit", name="get_edit_place", methods={"GET"})
+     * @param Request $request
+     * @return Response
+     */
+    public function getEditPlace(Request $request): Response
+    {
+        $place = $this->placeManager->findPlaceById($request->get('id'));
+        return $this->render(
+            'place/addPlace.html.twig', [
+            'controller_name' => 'PlaceController',
+            'editPlace' => $place
+        ]);
+    }
+
+    /**
+     * @Route("/edit", name="edit_place", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     * @return JsonResponse
+     */
+    public function editPlace(Request $request, SerializerInterface $serializer): JsonResponse
+    {
+        $result = $this->placeManager->editPlace($request->get('data'));
         return new JsonResponse($serializer->serialize($result, 'json'));
     }
 }
