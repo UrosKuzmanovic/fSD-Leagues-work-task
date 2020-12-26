@@ -6,11 +6,13 @@ use App\Repository\PlaceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PlaceRepository::class)
  */
-class Place
+class Place implements BaseEntityInterface
 {
     /**
      * @ORM\Id
@@ -21,11 +23,13 @@ class Place
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Type("integer")
      */
     private $ptt;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Type("string")
      */
     private $name;
 
@@ -132,5 +136,10 @@ class Place
         }
 
         return $this;
+    }
+
+    public function getId()
+    {
+        return $this->placeID;
     }
 }

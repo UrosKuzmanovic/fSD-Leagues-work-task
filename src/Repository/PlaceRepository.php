@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Place;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,16 @@ class PlaceRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Place::class);
+    }
+
+    public function addPlace(Place $place)
+    {
+        try {
+            $this->_em->persist($place);
+            $this->_em->flush();
+            return $place;
+        } catch (ORMException $e) {
+        }
     }
 
     // /**

@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Created templates">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201224153050.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201224153203.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201224202916.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201224203559.php" afterDir="false" />
+    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Renamed code to english">
+      <change afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/controllers/hello_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/assets.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/prod/webpack_encore.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/test/webpack_encore.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/webpack_encore.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/BaseEntityInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/PlaceManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utils/EntityValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fSD-zadatak-2-Lige.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fSD-zadatak-2-Lige.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201222170921.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201222170921.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201222171219.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201222171219.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IgracController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/KlubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MestoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UtakmicaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MatchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Igrac.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Klub.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Club.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Mesto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Place.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Nastup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Performance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Pozicija.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Position.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Takmicenje.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Competition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Utakmica.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Match.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/IgracRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/KlubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClubRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MestoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlaceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/NastupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PozicijaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PositionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TakmicenjeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CompetitionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UtakmicaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MatchRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/igrac/listaIgraca.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/playerList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/igrac/unesiIgraca.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/klub/listaKlubova.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/clubList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/klub/unesiKlub.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/addClub.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mesto/listaMesta.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/placeList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mesto/unesiMesto.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/addPlace.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/utakmica/listaUtakmica.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/match/matchList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/utakmica/unesiUtakmicu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/match/addMatch.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Place.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Place.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PlaceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlaceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/place/addPlace.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/addPlace.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/place/placeList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/placeList.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +147,7 @@
       <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lpTOm8M3jmWVctNf3XcJrM3TMZ" />
@@ -164,11 +160,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/utakmica" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -195,7 +194,10 @@
       <workItem from="1608293003472" duration="1811000" />
       <workItem from="1608650231681" duration="6229000" />
       <workItem from="1608737103605" duration="3816000" />
-      <workItem from="1608820518716" duration="9502000" />
+      <workItem from="1608820518716" duration="9786000" />
+      <workItem from="1608890931941" duration="9590000" />
+      <workItem from="1608939376345" duration="2753000" />
+      <workItem from="1608975023281" duration="9664000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -218,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608823524048</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Renamed code to english">
+      <created>1608842825741</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608842825741</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +250,11 @@
     <MESSAGE value="Added Entities" />
     <MESSAGE value="Added Controllers and Routes" />
     <MESSAGE value="Created templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created templates" />
+    <MESSAGE value="Renamed code to english" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed code to english" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

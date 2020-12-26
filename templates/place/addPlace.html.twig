@@ -3,5 +3,35 @@
 {% block title %}Add place{% endblock %}
 
 {% block body %}
-    {# {{ form(form) }} #}
+    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
+    <p><a href="{{ path('place_list') }}">LIST OF PLACES</a></p>
+    <label for="ptt">PTT</label>
+    <input type="number" id="ptt">
+    <br><br>
+    <label for="name">Name</label>
+    <input type="text" id="name">
+    <br><br>
+    <button id="add-club" onclick="addClub()">Add club</button>
+
+    <p id="error"></p>
+{% endblock %}
+
+{% block myJavascripts %}
+    <script>
+        function addClub(){
+            let ptt = $('#ptt').val().trim();
+            let name = $('#name').val().trim();
+            if(ptt === "" || name === ""){
+                $('#error').html("Please enter all of the fields.");
+            } else {
+                $.post("{{ path('post_place') }}", {data: {
+                        ptt: parseInt(ptt),
+                        name: name
+                    }}, function (data){
+                    alert("New place was successfully added!");
+                    window.location.replace("{{ path('place_list') }}")
+                })
+            }
+        }
+    </script>
 {% endblock %}
