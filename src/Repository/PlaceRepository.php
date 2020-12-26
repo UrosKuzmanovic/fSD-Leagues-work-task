@@ -30,6 +30,15 @@ class PlaceRepository extends ServiceEntityRepository
         }
     }
 
+    public function removePlace(int $id)
+    {
+        try {
+            $this->_em->remove($this->find($id));
+            $this->_em->flush();
+        } catch (ORMException $e) {
+        }
+    }
+
     // /**
     //  * @return Place[] Returns an array of Place objects
     //  */

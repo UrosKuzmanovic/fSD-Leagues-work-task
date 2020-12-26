@@ -53,4 +53,9 @@ class PlaceManager
         }
         return $this->validator->validate($place);
     }
+
+    public function deletePlace(int $id)
+    {
+        $this->placeRepository->removePlace($id);
+    }
 }

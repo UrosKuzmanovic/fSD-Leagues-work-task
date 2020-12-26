@@ -45,7 +45,7 @@
             if(ptt === "" || name === ""){
                 $('#error').html("Please enter all of the fields.");
             } else {
-                $.post("{{ path('edit_place') }}", {data: {
+                $.put("{{ path('edit_place') }}", {data: {
                         placeID: $('#placeID').val(),
                         ptt: parseInt(ptt),
                         name: name

@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Place;
 use App\Service\PlaceManager;
-use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +15,6 @@ use Symfony\Component\Serializer\SerializerInterface;
  */
 class PlaceController extends AbstractController
 {
-    private $places;
     private $placeManager;
 
     public function __construct(PlaceManager $placeManager)
@@ -30,12 +27,15 @@ class PlaceController extends AbstractController
      */
     public function getPlaceList(): Response
     {
-        $this->places = $this->placeManager->getAllPlaces();
+        $places = $this->placeManager->getAllPlaces();
+
         return $this->render(
-            'place/placeList.html.twig', [
-            'controller_name' => 'PlaceController',
-            'places' => $this->places
-        ]);
+            'place/placeList.html.twig',
+            [
+                'controller_name' => 'PlaceController',
+                'places'          => $places,
+            ]
+        );
     }
 
     /**
@@ -44,47 +44,79 @@ class PlaceController extends AbstractController
     public function getAddPlace(): Response
     {
         return $this->render(
-            'place/addPlace.html.twig', [
-            'controller_name' => 'PlaceController',
-        ]);
+            'place/addPlace.html.twig',
+            [
+                'controller_name' => 'PlaceController',
+            ]
+        );
     }
 
     /**
      * @Route("/add-new", name="post_place", methods={"POST"})
      * @param Request             $request
      * @param SerializerInterface $serializer
+     *
      * @return Response
      */
-    public function addPlace(Request $request, SerializerInterface $serializer): Response
-    {
-        $result = $this->placeManager->addNewPlace($newPlace = $request->get('data'));
+    public function addPlace(
+        Request $request,
+        SerializerInterface $serializer
+    ): Response {
+        $result = $this->placeManager->addNewPlace(
+            $newPlace = $request->get('data')
+        );
+
         return new JsonResponse($serializer->serialize($result, 'json'));
     }
 
     /**
      * @Route("/edit", name="get_edit_place", methods={"GET"})
      * @param Request $request
+     *
      * @return Response
      */
     public function getEditPlace(Request $request): Response
     {
         $place = $this->placeManager->findPlaceById($request->get('id'));
+
         return $this->render(
-            'place/addPlace.html.twig', [
-            'controller_name' => 'PlaceController',
-            'editPlace' => $place
-        ]);
+            'place/addPlace.html.twig',
+            [
+                'controller_name' => 'PlaceController',
+                'editPlace'       => $place,
+            ]
+        );
     }
 
     /**
-     * @Route("/edit", name="edit_place", methods={"POST"})
+     * @Route("/edit", name="edit_place", methods={"PUT"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function editPlace(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $result = $this->placeManager->editPlace($request->get('data'));
+
+        return new JsonResponse($serializer->serialize($result, 'json'));
+    }
+
+    /**
+     * @Route("/delete", name="delete_place", methods={"POST"})
      * @param Request             $request
      * @param SerializerInterface $serializer
      * @return JsonResponse
      */
-    public function editPlace(Request $request, SerializerInterface $serializer): JsonResponse
-    {
-        $result = $this->placeManager->editPlace($request->get('data'));
-        return new JsonResponse($serializer->serialize($result, 'json'));
+    public function deletePlace(
+        Request $request,
+        SerializerInterface $serializer
+    ) {
+        $this->placeManager->deletePlace($request->get('id'));
+        $places = $this->placeManager->getAllPlaces();
+
+        return new JsonResponse($serializer->serialize($places, 'json'));
     }
 }
