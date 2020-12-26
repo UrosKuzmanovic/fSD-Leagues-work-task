@@ -30,6 +30,7 @@ class PlaceController extends AbstractController
      */
     public function getPlaceList(): Response
     {
+        $this->places = $this->placeManager->getAllPlaces();
         return $this->render(
             'place/placeList.html.twig', [
             'controller_name' => 'PlaceController',

@@ -1,36 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Renamed code to english">
-      <change afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/controllers/hello_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/assets.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/webpack_encore.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/BaseEntityInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/PlaceManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utils/EntityValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fSD-zadatak-2-Lige.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fSD-zadatak-2-Lige.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Add new place function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Place.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Place.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PlaceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlaceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/place/addPlace.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/addPlace.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/place/placeList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/placeList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PlaceManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlaceManager.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +171,7 @@
       <workItem from="1608820518716" duration="9786000" />
       <workItem from="1608890931941" duration="9590000" />
       <workItem from="1608939376345" duration="2753000" />
-      <workItem from="1608975023281" duration="9664000" />
+      <workItem from="1608975023281" duration="11125000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -227,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608842825741</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add new place function">
+      <created>1608984885138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608984885138</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +232,8 @@
     <MESSAGE value="Added Controllers and Routes" />
     <MESSAGE value="Created templates" />
     <MESSAGE value="Renamed code to english" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed code to english" />
+    <MESSAGE value="Add new place function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new place function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

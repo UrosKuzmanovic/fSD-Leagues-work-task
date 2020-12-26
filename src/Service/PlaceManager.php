@@ -20,6 +20,11 @@ class PlaceManager
         $this->validator = $validator;
     }
 
+    public function getAllPlaces(): array
+    {
+        return $this->placeRepository->findAll();
+    }
+
     public function addNewPlace($newPlace)
     {
         $place = new Place();
