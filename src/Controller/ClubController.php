@@ -70,8 +70,23 @@ class ClubController extends AbstractController
         Request $request,
         SerializerInterface $serializer
     ): Response {
-        $result = $this->clubManager->addNewClub($request->get('data'));
+        $result = $this->clubManager->addNewClub(
+            $newClub = $request->get('data')
+        );
 
-        return new JsonResponse($serializer->serialize($result, 'json'));
+        return new JsonResponse(
+            $serializer->serialize(
+                $result,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'matchesHome',
+                        'matchesAway',
+                        'players',
+                        'place'
+                    ],
+                ]
+            )
+        );
     }
 }

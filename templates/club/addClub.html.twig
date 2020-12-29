@@ -7,28 +7,43 @@
     <p><a href="{{ path('club_list') }}">LIST OF CLUBS</a></p>
     <label for="name">Name</label>
     <input type="text" id="name"><br>
+    <label for="places-select">Place</label>
     <select id="places-select" name="places">
         {% for place in places %}
             <option value="{{ place.getPlaceID }}">{{ place.getName() }}</option>
         {% endfor %}
     </select><br><br>
-    <button type="submit" onclick="addClub()">Add club</button>
+    <button id="add-club" onclick="addClub()">Add club</button>
+    <p id="error"></p>
 {% endblock %}
-{% block javascripts %}
+
+{% block myJavascripts %}
     <script>
-        $(document).ready(function () {
+        /*$(document).ready(function () {
             $('.places-select').select2();
-        });
+        });*/
 
         function addClub() {
-            $.post("{{ path('post_club') }}", {
-                data: {
-                    name: $('#name').val().trim(),
-                    placeID: $('#places-select').val()
-                }, function() {
-                    // kada se posalje
-                }
-            })
+            let name = $('#name').val().trim();
+            let place = $('#places-select').val();
+            if (name === "" || place === "") {
+                $('#error').html("Please enter all of the fields.");
+            } else {
+                $.post("{{ path('post_club') }}", {
+                    data: {
+                        name: name,
+                        placeID: place
+                    }
+                }, function (data) {
+                    let obj = JSON.parse(data);
+                    if (obj['clubID']) {
+                        alert("New club was successfully added!");
+                        window.location.replace("{{ path('club_list') }}")
+                    } else {
+                        alert("There was an error while adding new club.");
+                    }
+                })
+            }
         }
     </script>
 {% endblock %}

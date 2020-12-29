@@ -20,7 +20,7 @@ class ClubRepository extends ServiceEntityRepository
         parent::__construct($registry, Club::class);
     }
 
-    public function addClub(Club $club): Club
+    public function addClub(Club $club)
     {
         try {
             $this->_em->persist($club);

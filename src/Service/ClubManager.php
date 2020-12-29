@@ -29,13 +29,17 @@ class ClubManager
         return $this->clubRepository->findAll();
     }
 
-    public function addNewClub($newClub){
+    public function addNewClub($newClub)
+    {
         $club = new Club();
-        $club->setName($newClub->get('name'));
-        $club->setPlace($this->placeManager->findPlaceById($newClub->get('placeID')));
-        if($this->validator->validate($club)){
+        $club->setName($newClub['name']);
+        $club->setPlace(
+            $this->placeManager->findPlaceById($newClub['placeID'])
+        );
+        if ($this->validator->validate($club)) {
             return $this->clubRepository->addClub($club);
         }
+
         return $this->validator->validate($club);
     }
 }
