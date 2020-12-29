@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ClubRepository::class)
  */
-class Club
+class Club implements BaseEntityInterface
 {
     /**
      * @ORM\Id
@@ -169,5 +169,10 @@ class Club
         $this->place = $place;
 
         return $this;
+    }
+
+    public function getId()
+    {
+        return $this->clubID;
     }
 }

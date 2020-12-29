@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Club;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,16 @@ class ClubRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Club::class);
+    }
+
+    public function addClub(Club $club): Club
+    {
+        try {
+            $this->_em->persist($club);
+            $this->_em->flush();
+            return $club;
+        } catch (ORMException $e) {
+        }
     }
 
     // /**

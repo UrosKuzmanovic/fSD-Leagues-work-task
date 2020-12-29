@@ -5,5 +5,30 @@
 {% block body %}
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('club_list') }}">LIST OF CLUBS</a></p>
-    {# {{ form(form) }} #}
+    <label for="name">Name</label>
+    <input type="text" id="name"><br>
+    <select id="places-select" name="places">
+        {% for place in places %}
+            <option value="{{ place.getPlaceID }}">{{ place.getName() }}</option>
+        {% endfor %}
+    </select><br><br>
+    <button type="submit" onclick="addClub()">Add club</button>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            $('.places-select').select2();
+        });
+
+        function addClub() {
+            $.post("{{ path('post_club') }}", {
+                data: {
+                    name: $('#name').val().trim(),
+                    placeID: $('#places-select').val()
+                }, function() {
+                    // kada se posalje
+                }
+            })
+        }
+    </script>
 {% endblock %}
