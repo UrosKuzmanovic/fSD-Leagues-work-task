@@ -121,7 +121,7 @@ class Player
         return $this;
     }
 
-    public function getPositions(): ?Position
+    public function getPositions(): ?string
     {
         return $this->positions;
     }

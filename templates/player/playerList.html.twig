@@ -17,11 +17,11 @@
         </th>
         {% for player in players %}
             <tr>
-                <td>{{ player.getFisrtName() }}</td>
+                <td>{{ player.getFirstName() }}</td>
                 <td>{{ player.getLastName() }}</td>
                 <td>{{ player.getJmbg() }}</td>
                 <td>{{ player.getDateOfBirth() | date('d/m/Y') }}</td>
-                <td>{{ player.getPosition() }}</td>
+                <td>{{ player.getPositions() }}</td>
                 <td>{{ player.getPlace.getName() }}</td>
                 <td>{{ player.getClub.getName() }}</td>
                 <td>Edit</td>
