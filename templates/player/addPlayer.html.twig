@@ -3,5 +3,80 @@
 {% block title %}Add player{% endblock %}
 
 {% block body %}
-    {# {{ form(form) }} #}
+    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
+    <p><a href="{{ path('player_list') }}">LIST OF PLAYERS</a></p>
+
+    <label for="firstName">First name</label>
+    <input type="text" id="firstName"><br>
+
+    <label for="lastName">Last name</label>
+    <input type="text" id="lastName"><br>
+
+    <label for="jmbg">JMBG</label>
+    <input type="text" id="jmbg"><br>
+
+    <label for="dateOfBirth">Date of birth</label>
+    <input type="date" id="dateOfBirth"><br>
+
+    <label for="positions">Position</label>
+    <select id="position">
+        {% for position in positions %}
+            <option value="{{ position }}">{{ position }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="place">Place</label>
+    <select id="place">
+        {% for place in places %}
+            <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="club">Club</label>
+    <select id="club">
+        {% for club in clubs %}
+            <option value="{{ club.getClubID() }}">{{ club.getNAme() }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <button onclick="addPlayer()">Add player</button>
+
+    <p id="error"></p>
+{% endblock %}
+
+{% block myJavascripts %}
+    <script>
+        function addPlayer() {
+            let firstName = $('#firstName').val();
+            let lastName = $('#lastName').val();
+            let jmbg = $('#jmbg').val();
+            let dateOfBirth = $('#dateOfBirth').val();
+            let position = $('#position').val();
+            let place = $('#place').val();
+            let club = $('#club').val();
+            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "") {
+                $('#error').html("Please enter all of the fields.");
+            } else {
+                $.post("{{ path('post_player') }}", {
+                    data: {
+                        firstName: firstName,
+                        lastName: lastName,
+                        jmbg: jmbg,
+                        dateOfBirth: dateOfBirth,
+                        position: position,
+                        placeID: place,
+                        clubID: club
+                    }
+                }, function (data) {
+                    let obj = JSON.parse(data);
+                    if (obj['playerID']) {
+                        alert("New place was successfully added!");
+                        window.location.replace("{{ path('place_list') }}")
+                    } else {
+                        alert("There was an error while adding new place.");
+                    }
+                })
+            }
+        }
+    </script>
 {% endblock %}

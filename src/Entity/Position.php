@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\PositionRepository;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Position
@@ -13,7 +11,22 @@ class Position
      */
     private $positions;
 
-    private static function getPositions(){
-        return [];
+    public static function getPositions(): array
+    {
+        return [
+            'GK',
+            'LB',
+            'CB',
+            'RB',
+            'CDM',
+            'CM',
+            'LM',
+            'RM',
+            'CAM',
+            'LW',
+            'RW',
+            'CF',
+            'ST',
+        ];
     }
 }

@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=PlayerRepository::class)
  */
-class Player
+class Player implements BaseEntityInterface
 {
     /**
      * @ORM\Id
@@ -126,7 +126,7 @@ class Player
         return $this->positions;
     }
 
-    public function setPositions(?Position $positions): self
+    public function setPositions(string $positions): self
     {
         $this->positions = $positions;
 
@@ -185,5 +185,10 @@ class Player
         }
 
         return $this;
+    }
+
+    public function getId()
+    {
+        return $this->playerID;
     }
 }

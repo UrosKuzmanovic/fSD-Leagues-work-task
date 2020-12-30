@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Position.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Position.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PlayerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/player/playerList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/playerList.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +181,7 @@
       <workItem from="1609265318747" duration="843000" />
       <workItem from="1609266187841" duration="4320000" />
       <workItem from="1609325683203" duration="5155000" />
-      <workItem from="1609350016029" duration="615000" />
+      <workItem from="1609350016029" duration="3322000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -270,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609330874771</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Get all players function">
+      <created>1609350759826</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1609350759826</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +314,8 @@
     <MESSAGE value="Fixed Add new club function" />
     <MESSAGE value="Edit club function, fixed Edit place function" />
     <MESSAGE value="Delete club function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete club function" />
+    <MESSAGE value="Get all players function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get all players function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
