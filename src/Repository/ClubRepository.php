@@ -20,12 +20,21 @@ class ClubRepository extends ServiceEntityRepository
         parent::__construct($registry, Club::class);
     }
 
-    public function addClub(Club $club)
+    public function addClub(Club $club): Club
     {
         try {
             $this->_em->persist($club);
             $this->_em->flush();
             return $club;
+        } catch (ORMException $e) {
+        }
+    }
+
+    public function removeClub(int $id)
+    {
+        try {
+            $this->_em->remove($this->find($id));
+            $this->_em->flush();
         } catch (ORMException $e) {
         }
     }

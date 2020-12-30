@@ -4,10 +4,11 @@
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ClubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClubRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/ClubManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ClubManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/club/addClub.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/addClub.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/club/clubList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/clubList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/place/addPlace.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/addPlace.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/place/placeList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/placeList.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +179,7 @@
       <workItem from="1609263170277" duration="2104000" />
       <workItem from="1609265318747" duration="843000" />
       <workItem from="1609266187841" duration="4320000" />
-      <workItem from="1609325683203" duration="4186000" />
+      <workItem from="1609325683203" duration="4988000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -257,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609284588295</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Edit club function, fixed Edit place function">
+      <created>1609330034178</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609330034178</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +296,8 @@
     <MESSAGE value="Get all clubs function" />
     <MESSAGE value="Add new club function" />
     <MESSAGE value="Fixed Add new club function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Add new club function" />
+    <MESSAGE value="Edit club function, fixed Edit place function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit club function, fixed Edit place function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

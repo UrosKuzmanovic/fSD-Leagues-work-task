@@ -139,4 +139,28 @@ class ClubController extends AbstractController
             )
         );
     }
+
+    /**
+     * @Route("/delete", name="delete_club", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     * @return JsonResponse
+     */
+    public function deleteClub(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $this->clubManager->deleteClub($request->get('id'));
+        $clubs = $this->clubManager->getAllClubs();
+
+        return new JsonResponse($serializer->serialize($clubs, 'json',
+            [
+                'ignored_attributes' => [
+                    'matchesHome',
+                    'matchesAway',
+                    'players',
+                    'place',
+                ],
+            ]));
+    }
 }

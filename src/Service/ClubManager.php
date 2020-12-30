@@ -61,4 +61,9 @@ class ClubManager
     {
         return $this->clubRepository->find($id);
     }
+
+    public function deleteClub(int $id)
+    {
+        $this->clubRepository->removeClub($id);
+    }
 }

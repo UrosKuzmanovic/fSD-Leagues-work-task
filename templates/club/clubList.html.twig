@@ -14,16 +14,34 @@
         </thead>
         {% for club in clubs %}
             <tbody>
-                <tr>
+                <tr id="row-{{ club.getClubID() }}">
                     <td>{{ club.getName() }}</td>
                     <td>{{ club.getPlace.getName() }}</td>
                     <td><a href="{{ path("get_edit_club", {'id': club.getClubID }) }}">Edit</a></td>
-                    <td>Delete</td>
+                    <td onclick="deleteClub({{ club.getClubID }}, 'row-{{ club.getClubID }}');">Delete</td>
                 </tr>
             </tbody>
         {% endfor %}
     </table>
 {% endblock %}
 
-{% block myJavascipts %}
+{% block myJavascripts %}
+    <script>
+        function deleteClub(id, row){
+            if (confirm("You are about to delete this club.")) {
+                $.ajax({
+                    url: "{{ path('delete_club') }}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'id': id
+                    },
+                    success: function(){
+                        $('#'+row).remove();
+                        alert("Club was successfully deleted!");
+                    }
+                })
+            }
+        }
+    </script>
 {% endblock %}

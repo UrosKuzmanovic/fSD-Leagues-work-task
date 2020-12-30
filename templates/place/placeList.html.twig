@@ -7,10 +7,10 @@
     <p><a href="{{ path('add_place') }}">ADD NEW PLACE</a></p>
     <table>
         <th>
-            <td>PTT</td>
-            <td>Name</td>
-            <td></td>
-            <td></td>
+        <td>PTT</td>
+        <td>Name</td>
+        <td></td>
+        <td></td>
         </th>
         {% for place in places %}
             <tr id="row-{{ place.getPlaceID() }}">
@@ -25,19 +25,20 @@
 
 {% block myJavascripts %}
     <script>
-        function deletePlace(id, row){
+        function deletePlace(id, row) {
             if (confirm("You are about to delete this place.")) {
                 $.ajax({
-                url: "{{ path('delete_place') }}",
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    'id': id
-                },
-                success: function(){
-                    $('#'+row).remove();
-                }
-            })
+                    url: "{{ path('delete_place') }}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'id': id
+                    },
+                    success: function () {
+                        $('#' + row).remove();
+                        alert("Club was successfully deleted!");
+                    }
+                })
             }
         }
     </script>

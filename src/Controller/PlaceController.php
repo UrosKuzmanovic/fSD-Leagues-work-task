@@ -113,7 +113,7 @@ class PlaceController extends AbstractController
     public function deletePlace(
         Request $request,
         SerializerInterface $serializer
-    ) {
+    ): JsonResponse {
         $this->placeManager->deletePlace($request->get('id'));
         $places = $this->placeManager->getAllPlaces();
 
