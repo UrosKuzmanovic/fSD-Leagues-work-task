@@ -6,19 +6,24 @@
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('add_club') }}">ADD NEW CLUB</a></p>
     <table>
-        <th>
-        <td>Name</td>
-        <td>Place</td>
-        <td></td>
-        <td></td>
-        </th>
+        <thead>
+            <td>Name</td>
+            <td>Place</td>
+            <td></td>
+            <td></td>
+        </thead>
         {% for club in clubs %}
-            <tr>
-                <td>{{ club.getName() }}</td>
-                <td>{{ club.getPlace.getName() }}</td>
-                <td>Edit</td>
-                <td>Delete</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>{{ club.getName() }}</td>
+                    <td>{{ club.getPlace.getName() }}</td>
+                    <td><a href="{{ path("get_edit_club", {'id': club.getClubID }) }}">Edit</a></td>
+                    <td>Delete</td>
+                </tr>
+            </tbody>
         {% endfor %}
     </table>
+{% endblock %}
+
+{% block myJavascipts %}
 {% endblock %}

@@ -1,19 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add club{% endblock %}
+{% block title %}{{ editClub is defined ? "Edit" : "Add" }} club{% endblock %}
 
 {% block body %}
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('club_list') }}">LIST OF CLUBS</a></p>
+    <input id="clubID" value="{{ editClub is defined ? editClub.getClubID() : '' }}" hidden>
     <label for="name">Name</label>
-    <input type="text" id="name"><br>
+    <input type="text" id="name" value="{{ editClub is defined ? editClub.getName() : '' }}"><br>
     <label for="places-select">Place</label>
     <select id="places-select" name="places">
         {% for place in places %}
-            <option value="{{ place.getPlaceID }}">{{ place.getName() }}</option>
+            {% if editClub is defined %}
+                <option value="{{ place.getPlaceID }}" {{ place.getPlaceID == editClub.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
+            {% else %}
+                <option value="{{ place.getPlaceID }}">{{ place.getName() }}</option>
+            {% endif %}
         {% endfor %}
     </select><br><br>
-    <button id="add-club" onclick="addClub()">Add club</button>
+    <button id="add-club"
+            onclick="{{ editClub is defined ? 'editClub()' : 'addClub()' }}">{{ editClub is defined ? "Edit" : "Add" }}
+        club
+    </button>
     <p id="error"></p>
 {% endblock %}
 
@@ -27,7 +35,7 @@
             let name = $('#name').val().trim();
             let place = $('#places-select').val();
             if (name === "" || place === "") {
-                $('#error').html("Please enter all of the fields.");
+                $('#error').html("Please enter all of the fields for adding.");
             } else {
                 $.post("{{ path('post_club') }}", {
                     data: {
@@ -41,6 +49,30 @@
                         window.location.replace("{{ path('club_list') }}")
                     } else {
                         alert("There was an error while adding new club.");
+                    }
+                })
+            }
+        }
+
+        function editClub() {
+            let name = $('#name').val().trim();
+            let place = $('#places-select').val();
+            if (name === "" || place === "") {
+                $('#error').html("Please enter all of the fields for editing.");
+            } else {
+                $.post("{{ path('edit_club') }}", {
+                    data: {
+                        clubID: $('#clubID').val(),
+                        name: name,
+                        placeID: place
+                    }
+                }, function (data) {
+                    let obj = JSON.parse(data);
+                    if (obj['clubID']) {
+                        alert("Club was successfully edited!");
+                        window.location.replace("{{ path('club_list') }}")
+                    } else {
+                        alert("There was an error while editing new club.");
                     }
                 })
             }

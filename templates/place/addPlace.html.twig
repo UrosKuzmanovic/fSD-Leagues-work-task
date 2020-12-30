@@ -12,24 +12,29 @@
     <label for="name">Name</label>
     <input type="text" id="name" value="{{ editPlace is defined ? editPlace.getName() : '' }}">
     <br><br>
-    <button id="add-place" onclick="{{ editPlace is defined ? 'editPlace()' : 'addPlace()' }}">{{ editPlace is defined ? 'Edit' : 'Add' }} place</button>
+    <button id="add-place"
+            onclick="{{ editPlace is defined ? 'editPlace()' : 'addPlace()' }}">{{ editPlace is defined ? 'Edit' : 'Add' }}
+        place
+    </button>
     <p id="error"></p>
 {% endblock %}
 
 {% block myJavascripts %}
     <script>
-        function addPlace(){
+        function addPlace() {
             let ptt = $('#ptt').val().trim();
             let name = $('#name').val().trim();
-            if(ptt === "" || name === ""){
+            if (ptt === "" || name === "") {
                 $('#error').html("Please enter all of the fields.");
             } else {
-                $.post("{{ path('post_place') }}", {data: {
+                $.post("{{ path('post_place') }}", {
+                    data: {
                         ptt: parseInt(ptt),
                         name: name
-                    }}, function (data){
+                    }
+                }, function (data) {
                     let obj = JSON.parse(data);
-                    if(obj['placeID']){
+                    if (obj['placeID']) {
                         alert("New place was successfully added!");
                         window.location.replace("{{ path('place_list') }}")
                     } else {
@@ -39,19 +44,21 @@
             }
         }
 
-        function editPlace(){
+        function editPlace() {
             let ptt = $('#ptt').val().trim();
             let name = $('#name').val().trim();
-            if(ptt === "" || name === ""){
+            if (ptt === "" || name === "") {
                 $('#error').html("Please enter all of the fields.");
             } else {
-                $.put("{{ path('edit_place') }}", {data: {
+                $.post("{{ path('edit_place') }}", {
+                    data: {
                         placeID: $('#placeID').val(),
                         ptt: parseInt(ptt),
                         name: name
-                    }}, function (data){
+                    }
+                }, function (data) {
                     let obj = JSON.parse(data);
-                    if(obj['placeID']){
+                    if (obj['placeID']) {
                         alert("Place was successfully edited!");
                         window.location.replace("{{ path('place_list') }}")
                     } else {

@@ -61,7 +61,7 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_club", methods={"POST"})
-     * @param Request $request
+     * @param Request             $request
      * @param SerializerInterface $serializer
      *
      * @return Response
@@ -83,7 +83,57 @@ class ClubController extends AbstractController
                         'matchesHome',
                         'matchesAway',
                         'players',
-                        'place'
+                        'place',
+                    ],
+                ]
+            )
+        );
+    }
+
+    /**
+     * @Route("/edit", name="get_edit_club", methods={"GET"})
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function getEditClub(Request $request): Response
+    {
+        $club = $this->clubManager->findClubById($request->get('id'));
+        $places = $this->placeManager->getAllPlaces();
+
+        return $this->render(
+            'club/addClub.html.twig',
+            [
+                'controller_name' => 'ClubController',
+                'editClub'        => $club,
+                'places'          => $places,
+            ]
+        );
+    }
+
+    /**
+     * @Route("/edit", name="edit_club", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function editClub(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $result = $this->clubManager->editClub($request->get('data'));
+
+        return new JsonResponse(
+            $serializer->serialize(
+                $result,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'matchesHome',
+                        'matchesAway',
+                        'players',
+                        'place',
                     ],
                 ]
             )

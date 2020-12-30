@@ -89,7 +89,7 @@ class PlaceController extends AbstractController
     }
 
     /**
-     * @Route("/edit", name="edit_place", methods={"PUT"})
+     * @Route("/edit", name="edit_place", methods={"POST"})
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
