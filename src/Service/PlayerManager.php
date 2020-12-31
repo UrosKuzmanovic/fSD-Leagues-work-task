@@ -85,4 +85,9 @@ class PlayerManager
         }
         return $this->validator->validate($player);
     }
+
+    public function deletePlayer(int $id)
+    {
+        $this->playerRepository->removePlayer($id);
+    }
 }

@@ -18,7 +18,7 @@
         <td></td>
         </th>
         {% for player in players %}
-            <tr>
+            <tr id="row-{{ player.getPlayerID() }}">
                 <td>{{ player.getFirstName() }}</td>
                 <td>{{ player.getLastName() }}</td>
                 <td>{{ player.getJmbg() }}</td>
@@ -27,8 +27,29 @@
                 <td>{{ player.getPlace.getName() }}</td>
                 <td>{{ player.getClub.getName() }}</td>
                 <td><a href="{{ path("get_edit_player", {'id':player.getPlayerID()}) }}">Edit</a></td>
-                <td>Delete</td>
+                <td onclick="deletePlayer({{ player.getPlayerID() }}, 'row-{{ player.getPLayerID() }}');">Delete</td>
             </tr>
         {% endfor %}
     </table>
+{% endblock %}
+
+{% block myJavascripts %}
+    <script>
+        function deletePlayer(id, row) {
+            if (confirm("You are about to delete this player.")) {
+                $.ajax({
+                    url: "{{ path('delete_player') }}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'id': id
+                    },
+                    success: function () {
+                        $('#' + row).remove();
+                        alert("Player was successfully deleted!");
+                    }
+                })
+            }
+        }
+    </script>
 {% endblock %}

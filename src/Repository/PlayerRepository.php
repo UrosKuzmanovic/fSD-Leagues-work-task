@@ -31,6 +31,15 @@ class PlayerRepository extends ServiceEntityRepository
         }
     }
 
+    public function removePlayer(int $id)
+    {
+        try {
+            $this->_em->remove($this->find($id));
+            $this->_em->flush();
+        } catch (ORMException $e) {
+        }
+    }
+
     // /**
     //  * @return Player[] Returns an array of Player objects
     //  */

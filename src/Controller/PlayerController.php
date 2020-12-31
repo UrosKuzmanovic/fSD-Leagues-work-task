@@ -6,7 +6,6 @@ use App\Entity\Position;
 use App\Service\ClubManager;
 use App\Service\PlaceManager;
 use App\Service\PlayerManager;
-use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -132,22 +131,41 @@ class PlayerController extends AbstractController
      */
     public function editPlayer(
         Request $request,
-        SerializerInterface $serializer,
-        LoggerInterface $logger
+        SerializerInterface $serializer
     ): JsonResponse {
-        $logger->error("TESTIRANJE");
-        $logger->error(
-            $serializer->serialize(
-                $request->get('data'),
-                'json'
-            )
-        );
-
         $result = $this->playerManager->editPlayer($request->get('data'));
 
         return new JsonResponse(
             $serializer->serialize(
                 $result,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'club',
+                        'place',
+                    ],
+                ]
+            )
+        );
+    }
+
+    /**
+     * @Route("/delete", name="delete_player", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function deletePlayer(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $this->playerManager->deletePlayer($request->get('id'));
+        $players = $this->playerManager->getAllPlayers();
+
+        return new JsonResponse(
+            $serializer->serialize(
+                $players,
                 'json',
                 [
                     'ignored_attributes' => [

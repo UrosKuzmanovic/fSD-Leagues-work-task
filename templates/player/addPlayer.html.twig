@@ -89,7 +89,7 @@
                     let obj = JSON.parse(data);
                     if (obj['playerID']) {
                         alert("New place was successfully added!");
-                        window.location.replace("{{ path('place_list') }}")
+                        window.location.replace("{{ path('player_list') }}")
                     } else {
                         alert("There was an error while adding new place.");
                     }
