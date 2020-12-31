@@ -114,6 +114,11 @@ class Player implements BaseEntityInterface
         return $this->dateOfBirth;
     }
 
+    public function getDateOfBirthString(): string
+    {
+        return $this->dateOfBirth->format('Y-m-d');
+    }
+
     public function setDateOfBirth(\DateTimeInterface $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;

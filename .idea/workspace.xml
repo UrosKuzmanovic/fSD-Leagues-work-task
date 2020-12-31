@@ -5,9 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Position.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Position.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/PlayerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/club/addClub.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/addClub.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/player/playerList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/playerList.html.twig" afterDir="false" />
     </list>
@@ -181,7 +180,9 @@
       <workItem from="1609265318747" duration="843000" />
       <workItem from="1609266187841" duration="4320000" />
       <workItem from="1609325683203" duration="5155000" />
-      <workItem from="1609350016029" duration="3322000" />
+      <workItem from="1609350016029" duration="3715000" />
+      <workItem from="1609373125137" duration="50000" />
+      <workItem from="1609373222022" duration="3020000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -281,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609350759826</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add new player function">
+      <created>1609353622741</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609353622741</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +323,8 @@
     <MESSAGE value="Edit club function, fixed Edit place function" />
     <MESSAGE value="Delete club function" />
     <MESSAGE value="Get all players function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get all players function" />
+    <MESSAGE value="Add new player function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new player function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

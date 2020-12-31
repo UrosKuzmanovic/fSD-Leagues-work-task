@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Entity\Place;
 use App\Entity\Player;
 use App\Repository\PlayerRepository;
 use App\Utils\EntityValidator;
@@ -38,7 +39,6 @@ class PlayerManager
         $player->setFirstName($newPlayer['firstName']);
         $player->setLastName($newPlayer['lastName']);
         $player->setJmbg($newPlayer['jmbg']);
-        //$player->setDateOfBirth($newPlayer['dateOfBirth']); // new date
         try {
             $player->setDateOfBirth(new \DateTime($newPlayer['dateOfBirth']));
         } catch (\Exception $e) {
@@ -55,6 +55,34 @@ class PlayerManager
             return $this->playerRepository->addPlayer($player);
         }
 
+        return $this->validator->validate($player);
+    }
+
+    public function findPlayerById(int $id): Player
+    {
+        return $this->playerRepository->find($id);
+    }
+
+    public function editPlayer($editedPlayer)
+    {
+        $player = $this->findPlayerById($editedPlayer['playerID']);
+        $player->setFirstName($editedPlayer['firstName']);
+        $player->setLastName($editedPlayer['lastName']);
+        $player->setJmbg($editedPlayer['jmbg']);
+        try {
+            $player->setDateOfBirth(new \DateTime($editedPlayer['dateOfBirth']));
+        } catch (\Exception $e) {
+        } // new date
+        $player->setPositions($editedPlayer['position']);
+        $player->setClub(
+            $this->clubManager->findClubById($editedPlayer['clubID'])
+        );
+        $player->setPlace(
+            $this->placeManager->findPlaceById($editedPlayer['placeID'])
+        );
+        if($this->validator->validate($player)){
+            return $this->playerRepository->addPlayer($player);
+        }
         return $this->validator->validate($player);
     }
 }

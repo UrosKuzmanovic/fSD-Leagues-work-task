@@ -12,9 +12,9 @@
     <select id="places-select" name="places">
         {% for place in places %}
             {% if editClub is defined %}
-                <option value="{{ place.getPlaceID }}" {{ place.getPlaceID == editClub.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
+                <option value="{{ place.getPlaceID() }}" {{ place.getPlaceID() == editClub.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
             {% else %}
-                <option value="{{ place.getPlaceID }}">{{ place.getName() }}</option>
+                <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
             {% endif %}
         {% endfor %}
     </select><br><br>

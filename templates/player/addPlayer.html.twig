@@ -1,45 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add player{% endblock %}
+{% block title %}{{ editPlayer is defined ? 'Edit' : 'Add' }} player{% endblock %}
 
 {% block body %}
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('player_list') }}">LIST OF PLAYERS</a></p>
 
+    <input id="playerID" value="{{ editPlayer is defined ? editPlayer.getPlayerID() : '' }}" hidden>
+
     <label for="firstName">First name</label>
-    <input type="text" id="firstName"><br>
+    <input type="text" id="firstName" value="{{ editPlayer is defined ? editPlayer.getFirstName() : '' }}"><br>
 
     <label for="lastName">Last name</label>
-    <input type="text" id="lastName"><br>
+    <input type="text" id="lastName" value="{{ editPlayer is defined ? editPlayer.getLastName() : '' }}"><br>
 
     <label for="jmbg">JMBG</label>
-    <input type="text" id="jmbg"><br>
+    <input type="text" id="jmbg" value="{{ editPlayer is defined ? editPlayer.getJmbg() : '' }}"><br>
 
     <label for="dateOfBirth">Date of birth</label>
-    <input type="date" id="dateOfBirth"><br>
+    <input type="date" id="dateOfBirth"
+           value="{{ editPlayer is defined ? editPlayer.getDateOfBirthString() : '' }}"><br>
 
     <label for="positions">Position</label>
     <select id="position">
         {% for position in positions %}
-            <option value="{{ position }}">{{ position }}</option>
+            {% if editPlayer is defined %}
+                <option value="{{ position }}" {{ position == editPlayer.getPositions() ? 'selected' : '' }}>{{ position }}</option>
+            {% else %}
+                <option value="{{ position }}">{{ position }}</option>
+            {% endif %}
         {% endfor %}
     </select><br>
 
     <label for="place">Place</label>
     <select id="place">
         {% for place in places %}
-            <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
+            {% if editClub is defined %}
+                <option value="{{ place.getPlaceID() }}" {{ place.getPlaceID() == editPlayer.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
+            {% else %}
+                <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
+            {% endif %}
         {% endfor %}
     </select><br>
 
     <label for="club">Club</label>
     <select id="club">
         {% for club in clubs %}
-            <option value="{{ club.getClubID() }}">{{ club.getNAme() }}</option>
+            {% if editClub is defined %}
+                <option value="{{ club.getClubID() }}" {{ club.getClubID() == editPlayer.getClub().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
+            {% else %}
+                <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+            {% endif %}
         {% endfor %}
     </select><br><br>
 
-    <button onclick="addPlayer()">Add player</button>
+    <button id="add-player"
+            onclick="{{ editPlayer is defined ? 'editPlayer()' : 'addPlayer()' }}">{{ editPlayer is defined ? "Edit" : "Add" }}
+        player
+    </button>
 
     <p id="error"></p>
 {% endblock %}
@@ -74,6 +92,40 @@
                         window.location.replace("{{ path('place_list') }}")
                     } else {
                         alert("There was an error while adding new place.");
+                    }
+                })
+            }
+        }
+
+        function editPlayer() {
+            let firstName = $('#firstName').val();
+            let lastName = $('#lastName').val();
+            let jmbg = $('#jmbg').val();
+            let dateOfBirth = $('#dateOfBirth').val();
+            let position = $('#position').val();
+            let place = $('#place').val();
+            let club = $('#club').val();
+            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "") {
+                $('#error').html("Please enter all of the fields.");
+            } else {
+                $.post("{{ path('edit_player') }}", {
+                    data: {
+                        playerID: $('#playerID').val(),
+                        firstName: firstName,
+                        lastName: lastName,
+                        jmbg: jmbg,
+                        dateOfBirth: dateOfBirth,
+                        position: position,
+                        placeID: place,
+                        clubID: club
+                    }
+                }, function (data) {
+                    let obj = JSON.parse(data);
+                    if (obj['playerID']) {
+                        alert("Player was successfully edited!");
+                        window.location.replace("{{ path('player_list') }}")
+                    } else {
+                        alert("There was an error while editing this player.");
                     }
                 })
             }

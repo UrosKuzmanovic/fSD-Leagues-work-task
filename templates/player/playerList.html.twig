@@ -7,15 +7,15 @@
     <p><a href="{{ path('add_player') }}">ADD NEW PLAYER</a></p>
     <table>
         <th>
-            <td>First name</td>
-            <td>Last name</td>
-            <td>JMBG</td>
-            <td>Date of birth</td>
-            <td>Position</td>
-            <td>Place</td>
-            <td>Club</td>
-            <td></td>
-            <td></td>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>JMBG</td>
+        <td>Date of birth</td>
+        <td>Position</td>
+        <td>Place</td>
+        <td>Club</td>
+        <td></td>
+        <td></td>
         </th>
         {% for player in players %}
             <tr>
@@ -26,7 +26,7 @@
                 <td>{{ player.getPositions() }}</td>
                 <td>{{ player.getPlace.getName() }}</td>
                 <td>{{ player.getClub.getName() }}</td>
-                <td>Edit</td>
+                <td><a href="{{ path("get_edit_player", {'id':player.getPlayerID()}) }}">Edit</a></td>
                 <td>Delete</td>
             </tr>
         {% endfor %}

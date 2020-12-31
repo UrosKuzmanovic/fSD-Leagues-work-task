@@ -6,6 +6,7 @@ use App\Entity\Position;
 use App\Service\ClubManager;
 use App\Service\PlaceManager;
 use App\Service\PlayerManager;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -83,11 +84,78 @@ class PlayerController extends AbstractController
             $newPlayer = $request->get('data')
         );
 
-        return new JsonResponse($serializer->serialize($result, 'json', [
-            'ignored_attributes' => [
-                'club',
-                'place',
-            ],
-        ]));
+        return new JsonResponse(
+            $serializer->serialize(
+                $result,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'club',
+                        'place',
+                    ],
+                ]
+            )
+        );
+    }
+
+    /**
+     * @Route("/edit", name="get_edit_player", methods={"GET"})
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function getEditPlayer(Request $request): Response
+    {
+        $player = $this->playerManager->findPlayerById($request->get('id'));
+        $positions = Position::getPositions();
+        $clubs = $this->clubManager->getAllClubs();
+        $places = $this->placeManager->getAllPlaces();
+
+        return $this->render(
+            'player/addPlayer.html.twig',
+            [
+                'controller_name' => 'PlaceController',
+                'editPlayer'      => $player,
+                'positions'       => $positions,
+                'clubs'           => $clubs,
+                'places'          => $places,
+            ]
+        );
+    }
+
+    /**
+     * @Route("/edit", name="edit_player", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function editPlayer(
+        Request $request,
+        SerializerInterface $serializer,
+        LoggerInterface $logger
+    ): JsonResponse {
+        $logger->error("TESTIRANJE");
+        $logger->error(
+            $serializer->serialize(
+                $request->get('data'),
+                'json'
+            )
+        );
+
+        $result = $this->playerManager->editPlayer($request->get('data'));
+
+        return new JsonResponse(
+            $serializer->serialize(
+                $result,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'club',
+                        'place',
+                    ],
+                ]
+            )
+        );
     }
 }
