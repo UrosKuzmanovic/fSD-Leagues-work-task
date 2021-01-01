@@ -25,13 +25,13 @@ class Competition
     private $competitionName;
 
     /**
-     * @ORM\OneToMany(targetEntity=Match::class, mappedBy="competition")
+     * @ORM\OneToMany(targetEntity=Game::class, mappedBy="competition")
      */
-    private $matches;
+    private $games;
 
     public function __construct()
     {
-        $this->matches = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     public function getCompetitionID(): ?int
@@ -52,29 +52,29 @@ class Competition
     }
 
     /**
-     * @return Collection|Match[]
+     * @return Collection|Game[]
      */
-    public function getMatches(): Collection
+    public function getGames(): Collection
     {
-        return $this->matches;
+        return $this->games;
     }
 
-    public function addMatch(Match $match): self
+    public function addGame(Game $game): self
     {
-        if (!$this->matches->contains($match)) {
-            $this->matches[] = $match;
-            $match->setCompetition($this);
+        if (!$this->games->contains($game)) {
+            $this->games[] = $game;
+            $game->setCompetition($this);
         }
 
         return $this;
     }
 
-    public function removeMatch(Match $match): self
+    public function removeGame(Game $game): self
     {
-        if ($this->matches->removeElement($match)) {
+        if ($this->games->removeElement($game)) {
             // set the owning side to null (unless already changed)
-            if ($match->getCompetition() === $this) {
-                $match->setCompetition(null);
+            if ($game->getCompetition() === $this) {
+                $game->setCompetition(null);
             }
         }
 

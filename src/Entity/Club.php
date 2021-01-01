@@ -30,14 +30,14 @@ class Club implements BaseEntityInterface
     private $players;
 
     /**
-     * @ORM\OneToMany(targetEntity=Match::class, mappedBy="home")
+     * @ORM\OneToMany(targetEntity=Game::class, mappedBy="home")
      */
-    private $matchesHome;
+    private $gamesHome;
 
     /**
-     * @ORM\OneToMany(targetEntity=Match::class, mappedBy="away")
+     * @ORM\OneToMany(targetEntity=Game::class, mappedBy="away")
      */
-    private $matchesAway;
+    private $gamesAway;
 
     /**
      * @ORM\ManyToOne(targetEntity=Place::class, inversedBy="clubs")
@@ -48,8 +48,8 @@ class Club implements BaseEntityInterface
     public function __construct()
     {
         $this->players = new ArrayCollection();
-        $this->matchesHome = new ArrayCollection();
-        $this->matchesAway = new ArrayCollection();
+        $this->gamesHome = new ArrayCollection();
+        $this->gamesAway = new ArrayCollection();
     }
 
     public function getClubID(): ?int
@@ -100,29 +100,29 @@ class Club implements BaseEntityInterface
     }
 
     /**
-     * @return Collection|Match[]
+     * @return Collection|Game[]
      */
-    public function getMatchesHome(): Collection
+    public function getGamesHome(): Collection
     {
-        return $this->matchesHome;
+        return $this->gamesHome;
     }
 
-    public function addMatchHome(Match $match): self
+    public function addGameHome(Game $game): self
     {
-        if (!$this->matchesHome->contains($match)) {
-            $this->matchesHome[] = $match;
-            $match->setHome($this);
+        if (!$this->gamesHome->contains($game)) {
+            $this->gamesHome[] = $game;
+            $game->setHome($this);
         }
 
         return $this;
     }
 
-    public function removeMatchHome(Match $match): self
+    public function removeGameHome(Game $game): self
     {
-        if ($this->matchesHome->removeElement($match)) {
+        if ($this->gamesHome->removeElement($game)) {
             // set the owning side to null (unless already changed)
-            if ($match->getHome() === $this) {
-                $match->setHome(null);
+            if ($game->getHome() === $this) {
+                $game->setHome(null);
             }
         }
 
@@ -130,29 +130,29 @@ class Club implements BaseEntityInterface
     }
 
     /**
-     * @return Collection|Match[]
+     * @return Collection|Game[]
      */
-    public function getMatchesAway(): Collection
+    public function getGamesAway(): Collection
     {
-        return $this->matchesAway;
+        return $this->gamesAway;
     }
 
-    public function addMatchAway(Match $match): self
+    public function addGameAway(Game $game): self
     {
-        if (!$this->matchesAway->contains($match)) {
-            $this->matchesAway[] = $match;
-            $match->setAway($this);
+        if (!$this->gamesAway->contains($game)) {
+            $this->gamesAway[] = $game;
+            $game->setAway($this);
         }
 
         return $this;
     }
 
-    public function removeMatchAway(Match $match): self
+    public function removeGameAway(Game $game): self
     {
-        if ($this->matchesAway->removeElement($match)) {
+        if ($this->gamesAway->removeElement($game)) {
             // set the owning side to null (unless already changed)
-            if ($match->getAway() === $this) {
-                $match->setAway(null);
+            if ($game->getAway() === $this) {
+                $game->setAway(null);
             }
         }
 

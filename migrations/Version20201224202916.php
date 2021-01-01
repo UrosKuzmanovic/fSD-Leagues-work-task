@@ -30,16 +30,16 @@ final class Version20201224202916 extends AbstractMigration
         $this->addSql('ALTER TABLE nastup DROP FOREIGN KEY FK_F51A205DB918DCE');
         $this->addSql('CREATE TABLE club (clubID INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, placeID INT NOT NULL, INDEX IDX_B8EE38729DE5BE6A (placeID), PRIMARY KEY(clubID)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE competition (competitionID INT AUTO_INCREMENT NOT NULL, competitionName VARCHAR(255) NOT NULL, PRIMARY KEY(competitionID)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE `match` (matchID INT AUTO_INCREMENT NOT NULL, matchDate DATE NOT NULL, home_club_goals INT NOT NULL, away_club_goals INT NOT NULL, competitionID INT NOT NULL, homeID INT NOT NULL, awayID INT NOT NULL, INDEX IDX_7A5BC505DED5252A (competitionID), INDEX IDX_7A5BC505995D9BD8 (homeID), INDEX IDX_7A5BC505B128F3FF (awayID), PRIMARY KEY(matchID)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE `game` (matchID INT AUTO_INCREMENT NOT NULL, matchDate DATE NOT NULL, home_club_goals INT NOT NULL, away_club_goals INT NOT NULL, competitionID INT NOT NULL, homeID INT NOT NULL, awayID INT NOT NULL, INDEX IDX_7A5BC505DED5252A (competitionID), INDEX IDX_7A5BC505995D9BD8 (homeID), INDEX IDX_7A5BC505B128F3FF (awayID), PRIMARY KEY(matchID)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE performance (performanceID INT AUTO_INCREMENT NOT NULL, playerRating NUMERIC(3, 1) NOT NULL, playerID INT NOT NULL, matchID INT NOT NULL, INDEX IDX_82D79681B989FCE3 (playerID), INDEX IDX_82D7968187AADB1B (matchID), PRIMARY KEY(performanceID)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE place (placeID INT AUTO_INCREMENT NOT NULL, ptt INT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(placeID)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE player (playerID INT AUTO_INCREMENT NOT NULL, firstName VARCHAR(255) NOT NULL, lastName VARCHAR(255) NOT NULL, jmbg VARCHAR(13) NOT NULL, dateOfBirth DATE NOT NULL, positions VARCHAR(255) NOT NULL, placeID INT NOT NULL, clubID INT NOT NULL, INDEX IDX_98197A659DE5BE6A (placeID), INDEX IDX_98197A6524D8783E (clubID), PRIMARY KEY(playerID)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE club ADD CONSTRAINT FK_B8EE38729DE5BE6A FOREIGN KEY (placeID) REFERENCES place (placeID)');
-        $this->addSql('ALTER TABLE `match` ADD CONSTRAINT FK_7A5BC505DED5252A FOREIGN KEY (competitionID) REFERENCES competition (competitionID)');
-        $this->addSql('ALTER TABLE `match` ADD CONSTRAINT FK_7A5BC505995D9BD8 FOREIGN KEY (homeID) REFERENCES club (clubID)');
-        $this->addSql('ALTER TABLE `match` ADD CONSTRAINT FK_7A5BC505B128F3FF FOREIGN KEY (awayID) REFERENCES club (clubID)');
+        $this->addSql('ALTER TABLE `game` ADD CONSTRAINT FK_7A5BC505DED5252A FOREIGN KEY (competitionID) REFERENCES competition (competitionID)');
+        $this->addSql('ALTER TABLE `game` ADD CONSTRAINT FK_7A5BC505995D9BD8 FOREIGN KEY (homeID) REFERENCES club (clubID)');
+        $this->addSql('ALTER TABLE `game` ADD CONSTRAINT FK_7A5BC505B128F3FF FOREIGN KEY (awayID) REFERENCES club (clubID)');
         $this->addSql('ALTER TABLE performance ADD CONSTRAINT FK_82D79681B989FCE3 FOREIGN KEY (playerID) REFERENCES player (playerID)');
-        $this->addSql('ALTER TABLE performance ADD CONSTRAINT FK_82D7968187AADB1B FOREIGN KEY (matchID) REFERENCES `match` (matchID)');
+        $this->addSql('ALTER TABLE performance ADD CONSTRAINT FK_82D7968187AADB1B FOREIGN KEY (matchID) REFERENCES `game` (matchID)');
         $this->addSql('ALTER TABLE player ADD CONSTRAINT FK_98197A659DE5BE6A FOREIGN KEY (placeID) REFERENCES place (placeID)');
         $this->addSql('ALTER TABLE player ADD CONSTRAINT FK_98197A6524D8783E FOREIGN KEY (clubID) REFERENCES club (clubID)');
         $this->addSql('DROP TABLE igrac');
@@ -53,10 +53,10 @@ final class Version20201224202916 extends AbstractMigration
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE `match` DROP FOREIGN KEY FK_7A5BC505995D9BD8');
-        $this->addSql('ALTER TABLE `match` DROP FOREIGN KEY FK_7A5BC505B128F3FF');
+        $this->addSql('ALTER TABLE `game` DROP FOREIGN KEY FK_7A5BC505995D9BD8');
+        $this->addSql('ALTER TABLE `game` DROP FOREIGN KEY FK_7A5BC505B128F3FF');
         $this->addSql('ALTER TABLE player DROP FOREIGN KEY FK_98197A6524D8783E');
-        $this->addSql('ALTER TABLE `match` DROP FOREIGN KEY FK_7A5BC505DED5252A');
+        $this->addSql('ALTER TABLE `game` DROP FOREIGN KEY FK_7A5BC505DED5252A');
         $this->addSql('ALTER TABLE performance DROP FOREIGN KEY FK_82D7968187AADB1B');
         $this->addSql('ALTER TABLE club DROP FOREIGN KEY FK_B8EE38729DE5BE6A');
         $this->addSql('ALTER TABLE player DROP FOREIGN KEY FK_98197A659DE5BE6A');
@@ -77,7 +77,7 @@ final class Version20201224202916 extends AbstractMigration
         $this->addSql('ALTER TABLE utakmica ADD CONSTRAINT FK_4ED098DDC529C0E6 FOREIGN KEY (gostID) REFERENCES klub (klubid) ON UPDATE NO ACTION ON DELETE NO ACTION');
         $this->addSql('DROP TABLE club');
         $this->addSql('DROP TABLE competition');
-        $this->addSql('DROP TABLE `match`');
+        $this->addSql('DROP TABLE `game`');
         $this->addSql('DROP TABLE performance');
         $this->addSql('DROP TABLE place');
         $this->addSql('DROP TABLE player');

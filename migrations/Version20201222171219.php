@@ -22,7 +22,7 @@ final class Version20201222171219 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE nastup CHANGE ocena_igraca ocenaIgraca NUMERIC(3, 1) NOT NULL');
         $this->addSql('ALTER TABLE takmicenje CHANGE naziv_takmicenja nazivTakmicenja VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE match CHANGE datum_odigravanja datumOdigravanja DATE NOT NULL');
+        $this->addSql('ALTER TABLE game CHANGE datum_odigravanja datumOdigravanja DATE NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20201222171219 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE nastup CHANGE ocenaigraca ocena_igraca NUMERIC(3, 1) NOT NULL');
         $this->addSql('ALTER TABLE takmicenje CHANGE nazivtakmicenja naziv_takmicenja VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`');
-        $this->addSql('ALTER TABLE match CHANGE datumodigravanja datum_odigravanja DATE NOT NULL');
+        $this->addSql('ALTER TABLE game CHANGE datumodigravanja datum_odigravanja DATE NOT NULL');
     }
 }

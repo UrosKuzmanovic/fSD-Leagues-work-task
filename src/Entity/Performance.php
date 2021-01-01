@@ -29,10 +29,10 @@ class Performance
     private $player;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Match::class, inversedBy="performances")
-     * @ORM\JoinColumn(nullable=false, name="matchID", referencedColumnName="matchID")
+     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="performances")
+     * @ORM\JoinColumn(nullable=false, name="gameID", referencedColumnName="gameID")
      */
-    private $match;
+    private $game;
 
     public function getPerformanceID(): ?int
     {
@@ -63,14 +63,14 @@ class Performance
         return $this;
     }
 
-    public function getMatch(): ?Match
+    public function getGame(): ?Game
     {
-        return $this->match;
+        return $this->game;
     }
 
-    public function setMatch(?Match $match): self
+    public function setGame(?Game $game): self
     {
-        $this->match = $match;
+        $this->game = $game;
 
         return $this;
     }

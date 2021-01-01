@@ -2,48 +2,48 @@
 
 namespace App\Entity;
 
-use App\Repository\MatchRepository;
+use App\Repository\GameRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=MatchRepository::class)
+ * @ORM\Entity(repositoryClass=GameRepository::class)
  */
-class Match
+class Game implements BaseEntityInterface
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer", name="matchID")
+     * @ORM\Column(type="integer", name="gameID")
      */
-    private $matchID;
+    private $gameID;
 
     /**
-     * @ORM\Column(type="date", name="matchDate")
+     * @ORM\Column(type="date", name="gameDate")
      */
-    private $matchDate;
+    private $gameDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Competition::class, inversedBy="matches")
+     * @ORM\ManyToOne(targetEntity=Competition::class, inversedBy="games")
      * @ORM\JoinColumn(nullable=false, name="competitionID", referencedColumnName="competitionID")
      */
     private $competition;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Club::class, inversedBy="matchesHome")
+     * @ORM\ManyToOne(targetEntity=Club::class, inversedBy="gamesHome")
      * @ORM\JoinColumn(nullable=false, name="homeID", referencedColumnName="clubID")
      */
     private $home;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Club::class, inversedBy="matchesAway")
+     * @ORM\ManyToOne(targetEntity=Club::class, inversedBy="gamesAway")
      * @ORM\JoinColumn(nullable=false, name="awayID", referencedColumnName="clubID")
      */
     private $away;
 
     /**
-     * @ORM\OneToMany(targetEntity=Performance::class, mappedBy="match")
+     * @ORM\OneToMany(targetEntity=Performance::class, mappedBy="game")
      */
     private $performances;
 
@@ -62,19 +62,19 @@ class Match
         $this->performances = new ArrayCollection();
     }
 
-    public function getMatchID(): ?int
+    public function getGameID(): ?int
     {
-        return $this->matchID;
+        return $this->gameID;
     }
 
-    public function getMatchDate(): ?\DateTimeInterface
+    public function getGameDate(): ?\DateTimeInterface
     {
-        return $this->matchDate;
+        return $this->gameDate;
     }
 
-    public function setMatchDate(\DateTimeInterface $matchDate): self
+    public function setGameDate(\DateTimeInterface $gameDate): self
     {
-        $this->matchDate = $matchDate;
+        $this->gameDate = $gameDate;
 
         return $this;
     }
@@ -127,7 +127,7 @@ class Match
     {
         if (!$this->performances->contains($performance)) {
             $this->performances[] = $performance;
-            $performance->setMatch($this);
+            $performance->setGame($this);
         }
 
         return $this;
@@ -137,8 +137,8 @@ class Match
     {
         if ($this->performances->removeElement($performance)) {
             // set the owning side to null (unless already changed)
-            if ($performance->getMatch() === $this) {
-                $performance->setMatch(null);
+            if ($performance->getGame() === $this) {
+                $performance->setGame(null);
             }
         }
 
@@ -171,6 +171,11 @@ class Match
 
     public function getResult(): string
     {
-      return $this->homeClubGoals." - ".$this->awayClubGoals;
+        return $this->homeClubGoals." - ".$this->awayClubGoals;
+    }
+
+    public function getId()
+    {
+        return $this->gameID;
     }
 }
