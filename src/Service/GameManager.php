@@ -32,9 +32,38 @@ class GameManager
         return $this->gameRepository->findAll();
     }
 
+    public function findGameById(int $id): ?Game
+    {
+        return $this->gameRepository->find($id);
+    }
+
     public function addNewGame($newGame)
     {
         $game = new Game();
+        $game->setHome($this->clubManager->findClubById($newGame['home']));
+        $game->setAway($this->clubManager->findClubById($newGame['away']));
+        $game->setHomeClubGoals($newGame['homeGoals']);
+        $game->setAwayClubGoals($newGame['awayGoals']);
+        $game->setCompetition(
+            $this->competitionManager->findCompetitionById(
+                $newGame['competition']
+            )
+        );
+        try {
+            $game->setGameDate(new \DateTime($newGame['date']));
+        } catch (\Exception $e) {
+        }
+
+        if ($this->validator->validate($game)) {
+            return $this->gameRepository->addGame($game);
+        }
+
+        return $this->validator->validate($game);
+    }
+
+    public function editGame($newGame)
+    {
+        $game = $this->findGameById($newGame['gameID']);
         $game->setHome($this->clubManager->findClubById($newGame['home']));
         $game->setAway($this->clubManager->findClubById($newGame['away']));
         $game->setHomeClubGoals($newGame['homeGoals']);

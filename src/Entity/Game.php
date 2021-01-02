@@ -72,6 +72,11 @@ class Game implements BaseEntityInterface
         return $this->gameDate;
     }
 
+    public function getGameDateString(): string
+    {
+        return $this->gameDate->format('Y-m-d');
+    }
+
     public function setGameDate(\DateTimeInterface $gameDate): self
     {
         $this->gameDate = $gameDate;

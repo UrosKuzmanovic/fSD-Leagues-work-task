@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change afterPath="$PROJECT_DIR$/src/Service/CompetitionManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/GameRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GameRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/GameManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/GameManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/EntityValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/EntityValidator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/game/addGame.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/addGame.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/gameList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/gameList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +206,7 @@
       <workItem from="1609547348151" duration="26000" />
       <workItem from="1609592713640" duration="4284000" />
       <workItem from="1609597304846" duration="935000" />
-      <workItem from="1609598655932" duration="724000" />
+      <workItem from="1609598655932" duration="2431000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -334,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609537070884</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add new game function">
+      <created>1609599516848</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1609599516848</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +379,8 @@
     <MESSAGE value="Edit player function" />
     <MESSAGE value="Delete player function" />
     <MESSAGE value="Get all games function, Entity Match renamed to Game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get all games function, Entity Match renamed to Game" />
+    <MESSAGE value="Add new game function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new game function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

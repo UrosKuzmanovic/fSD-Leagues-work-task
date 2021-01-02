@@ -35,7 +35,7 @@
     <label for="place">Place</label>
     <select id="place">
         {% for place in places %}
-            {% if editClub is defined %}
+            {% if editPlayer is defined %}
                 <option value="{{ place.getPlaceID() }}" {{ place.getPlaceID() == editPlayer.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
             {% else %}
                 <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
@@ -46,7 +46,7 @@
     <label for="club">Club</label>
     <select id="club">
         {% for club in clubs %}
-            {% if editClub is defined %}
+            {% if editPlayer is defined %}
                 <option value="{{ club.getClubID() }}" {{ club.getClubID() == editPlayer.getClub().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
             {% else %}
                 <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>

@@ -88,7 +88,58 @@ class GameController extends AbstractController
                     'ignored_attributes' => [
                         'home',
                         'away',
-                        'competition'
+                        'competition',
+                    ],
+                ]
+            )
+        );
+    }
+
+    /**
+     * @Route("/edit", name="get_edit_game", methods={"GET"})
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function getEditGame(Request $request): Response
+    {
+        $game = $this->gameManager->findGameById($request->get('id'));
+        $clubs = $this->clubManager->getAllClubs();
+        $competitions = $this->competitionManager->getAllCompetitions();
+
+        return $this->render(
+            'game/addGame.html.twig',
+            [
+                'controller_name' => 'GameController',
+                'editGame'        => $game,
+                'clubs'           => $clubs,
+                'competitions'    => $competitions,
+            ]
+        );
+    }
+
+    /**
+     * @Route("/edit", name="edit_game", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function editGame(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $result = $this->gameManager->editGame($request->get('data'));
+
+        return new JsonResponse(
+            $serializer->serialize(
+                $result,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'home',
+                        'away',
+                        'competition',
                     ],
                 ]
             )

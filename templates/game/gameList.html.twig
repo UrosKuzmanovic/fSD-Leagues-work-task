@@ -22,7 +22,7 @@
                 <td>{{ game.getResult() }}</td>
                 <td>{{ game.getCompetition.getCompetitionName() }}</td>
                 <td>{{ game.getGameDate() | date('d/m/Y') }}</td>
-                <td>Edit</td>
+                <td><a href="{{ path("get_edit_game", {'id': game.getGameID()}) }}">Edit</a></td>
                 <td>Delete</td>
             </tr>
         {% endfor %}

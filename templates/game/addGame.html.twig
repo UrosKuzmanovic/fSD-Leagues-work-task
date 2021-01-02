@@ -1,40 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add match{% endblock %}
+{% block title %}{{ editGame is defined ? "Edit" : "Add" }} game{% endblock %}
 
 {% block body %}
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('game_list') }}">LIST OF GAMES</a></p>
 
+    <input id="gameID" hidden value="{{ editGame is defined ? editGame.getGameID() : '' }}">
+
     <label for="home">Home team</label>
     <select id="home">
         {% for club in clubs %}
-            <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+            {% if editGame is defined %}
+                <option value="{{ club.getClubID() }}"
+                        {{ club.getClubID() == editGame.getHome().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
+            {% else %}
+                <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+            {% endif %}
         {% endfor %}
     </select><br>
 
     <label for="away">Away team</label>
     <select id="away">
         {% for club in clubs %}
-            <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+            {% if editGame is defined %}
+                <option value="{{ club.getClubID() }}"
+                        {{ club.getClubID() == editGame.getAway().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
+            {% else %}
+                <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+            {% endif %}
         {% endfor %}
     </select><br>
 
     <label>Result</label>
-    <input type="number" placeholder="Home" id="homeGoals"> -
-    <input type="number" placeholder="Away" id="awayGoals"><br>
+    <input type="number" placeholder="Home" id="homeGoals"
+           value="{{ editGame is defined ? editGame.getHomeClubGoals() : "" }}"> -
+    <input type="number" placeholder="Away" id="awayGoals"
+           value="{{ editGame is defined ? editGame.getAwayClubGoals() : "" }}"><br>
 
     <label for="competition">Competition</label>
     <select id="competition">
         {% for competition in competitions %}
-            <option value="{{ competition.getCompetitionID() }}">{{ competition.getCompetitionName() }}</option>
+            {% if editGame is defined %}
+                <option value="{{ competition.getCompetitionID() }}"
+                        {{ competition.getCompetitionID() == editGame.getCompetition().getCompetitionID() ? 'selected' : '' }}>{{ competition.getCompetitionName() }}</option>
+            {% else %}
+                <option value="{{ competition.getCompetitionID() }}">{{ competition.getCompetitionName() }}</option>
+            {% endif %}
         {% endfor %}
     </select><br>
 
     <label for="date">Date</label>
-    <input type="date" id="date"><br><br>
+    <input type="date" id="date" value="{{ editGame is defined ? editGame.getGameDateString() : '' }}"><br><br>
 
-    <button onclick="addGame()">Add game</button>
+    <button onclick={{ editGame is defined ? "editGame()" : "addGame()" }}>{{ editGame is defined ? "Edit" : "Add" }} game</button>
 
     <p id="error"></p>
 {% endblock %}
@@ -70,6 +89,42 @@
                             window.location.replace("{{ path('game_list') }}")
                         } else {
                             alert("There was an error while adding new game.");
+                        }
+                    }
+                );
+            }
+        }
+
+        function editGame() {
+            let home = $('#home').val();
+            let away = $('#away').val();
+            let homeGoals = $('#homeGoals').val();
+            let awayGoals = $('#awayGoals').val();
+            let competition = $('#competition').val();
+            let date = $('#date').val();
+
+            if (home === "" || away === "" || homeGoals === "" || awayGoals === "" || competition === "" || date === "") {
+                $('#error').html("Please enter all of the fields.");
+            } else if (home === away) {
+                $('#error').html("Home and away club can't be same.");
+            } else {
+                $.post("{{ path('edit_game') }}", {
+                        data: {
+                            gameID: $('#gameID').val(),
+                            home: home,
+                            away: away,
+                            homeGoals: homeGoals,
+                            awayGoals: awayGoals,
+                            competition: competition,
+                            date: date
+                        }
+                    }, function (data) {
+                        let obj = JSON.parse(data);
+                        if (obj['gameID']) {
+                            alert("New game was successfully edited!");
+                            window.location.replace("{{ path('game_list') }}")
+                        } else {
+                            alert("There was an error while editing new game.");
                         }
                     }
                 );
