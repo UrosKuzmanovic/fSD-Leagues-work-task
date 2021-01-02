@@ -145,4 +145,33 @@ class GameController extends AbstractController
             )
         );
     }
+
+    /**
+     * @Route("/delete", name="delete_game", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function deleteGame(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $this->gameManager->deleteGame($request->get('id'));
+        $games = $this->gameManager->getAllGames();
+
+        return new JsonResponse(
+            $serializer->serialize(
+                $games,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'home',
+                        'away',
+                        'competition',
+                    ],
+                ]
+            )
+        );
+    }
 }

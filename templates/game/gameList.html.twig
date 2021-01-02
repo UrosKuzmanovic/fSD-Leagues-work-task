@@ -6,7 +6,7 @@
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('add_game') }}">ADD NEW GAME</a></p>
     <table>
-        <th>
+        <thead>
         <td>Home</td>
         <td>Away</td>
         <td>Result</td>
@@ -14,17 +14,40 @@
         <td>Date</td>
         <td></td>
         <td></td>
-        </th>
+        </thead>
         {% for game in games %}
-            <tr>
+            <tbody>
+            <tr id="row-{{ game.getGameID() }}">
                 <td>{{ game.getHome.getName() }}</td>
                 <td>{{ game.getAway.getName() }}</td>
                 <td>{{ game.getResult() }}</td>
                 <td>{{ game.getCompetition.getCompetitionName() }}</td>
                 <td>{{ game.getGameDate() | date('d/m/Y') }}</td>
                 <td><a href="{{ path("get_edit_game", {'id': game.getGameID()}) }}">Edit</a></td>
-                <td>Delete</td>
+                <td onclick="deleteGame({{ game.getGameID }}, 'row-{{ game.getGameID }}');">Delete</td>
             </tr>
+            </tbody>
         {% endfor %}
     </table>
+{% endblock %}
+
+{% block myJavascripts %}
+    <script>
+        function deleteGame(id, row) {
+            if (confirm("You are about to delete this game.")) {
+                $.ajax({
+                    url: "{{ path('delete_game') }}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'id': id
+                    },
+                    success: function () {
+                        $('#' + row).remove();
+                        alert("Game was successfully deleted!");
+                    }
+                })
+            }
+        }
+    </script>
 {% endblock %}

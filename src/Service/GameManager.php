@@ -32,11 +32,6 @@ class GameManager
         return $this->gameRepository->findAll();
     }
 
-    public function findGameById(int $id): ?Game
-    {
-        return $this->gameRepository->find($id);
-    }
-
     public function addNewGame($newGame)
     {
         $game = new Game();
@@ -83,5 +78,15 @@ class GameManager
         }
 
         return $this->validator->validate($game);
+    }
+
+    public function findGameById(int $id): ?Game
+    {
+        return $this->gameRepository->find($id);
+    }
+
+    public function deleteGame(int $id)
+    {
+        $this->gameRepository->removeGame($id);
     }
 }

@@ -25,9 +25,20 @@ class GameRepository extends ServiceEntityRepository
         try {
             $this->_em->persist($game);
             $this->_em->flush();
+
             return $game;
         } catch (ORMException $e) {
         }
+    }
+
+    public function removeGame(int $id)
+    {
+        try {
+            $this->_em->remove($this->find($id));
+            $this->_em->flush();
+        } catch (ORMException $e) {
+        }
+
     }
 
     // /**
