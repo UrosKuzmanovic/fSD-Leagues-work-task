@@ -5,8 +5,7 @@ namespace App\Utils;
 
 
 use App\Entity\BaseEntityInterface;
-use App\Entity\Place;
-use Doctrine\ORM\Mapping\Entity;
+use App\Entity\Game;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class EntityValidator
@@ -18,19 +17,29 @@ class EntityValidator
         $this->validator = $validator;
     }
 
-    public function validate(BaseEntityInterface $entity){
+    public function validate(BaseEntityInterface $entity)
+    {
         $errors = $this->validator->validate($entity);
-        if (count($errors) > 0){
+        if (count($errors) > 0) {
             $errorMessages = [];
-            foreach ($errors as $error){
-                $errorMessages[$error->getPropertyPath()] = $error->getMessage();
+            foreach ($errors as $error) {
+                $errorMessages[$error->getPropertyPath()] = $error->getMessage(
+                );
             }
-            if (count($errorMessages) > 0){
+            if (count($errorMessages) > 0) {
                 return false;
             } else {
                 return $errorMessages;
             }
         }
+        if ($entity instanceof Game) {
+            if ($entity->getHome()->getClubID() === $entity->getAway()
+                    ->getClubID()
+            ) {
+                return false;
+            }
+        }
+
         return true;
     }
 }
