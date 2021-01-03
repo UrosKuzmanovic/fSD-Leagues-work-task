@@ -83,7 +83,9 @@ class PlayerController extends AbstractController
         Request $request,
         SerializerInterface $serializer
     ): Response {
-        $result = $this->playerManager->addNewPlayer($newPlayer = $request->get('data'));
+        $result = $this->playerManager->addNewPlayer(
+            $newPlayer = $request->get('data')
+        );
 
         return new JsonResponse(
             $serializer->serialize(
@@ -179,6 +181,36 @@ class PlayerController extends AbstractController
                     'ignored_attributes' => [
                         'club',
                         'place',
+                    ],
+                ]
+            )
+        );
+    }
+
+    /**
+     * @Route("/get-all-players-game", name="get_all_players_game", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function getAllPlayersGame(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $players = $this->playerManager->findPlayersByGame(
+            $request->get('game')
+        );
+
+        return new JsonResponse(
+            $serializer->serialize(
+                $players,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'club',
+                        'place',
+                        'performances'
                     ],
                 ]
             )

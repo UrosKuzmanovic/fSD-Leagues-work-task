@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change afterPath="$PROJECT_DIR$/src/Controller/PerformanceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/PerformanceManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PerformanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PerformanceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlayerRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PlayerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +210,7 @@
       <workItem from="1609592713640" duration="4284000" />
       <workItem from="1609597304846" duration="935000" />
       <workItem from="1609598655932" duration="18070000" />
-      <workItem from="1609676758257" duration="5266000" />
+      <workItem from="1609676758257" duration="9579000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -399,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609687237395</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Get all performances function">
+      <created>1609690717491</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1609690717491</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added Controllers and Routes" />
     <MESSAGE value="Created templates" />
     <MESSAGE value="Renamed code to english" />
     <MESSAGE value="Add new place function" />
@@ -444,7 +452,8 @@
     <MESSAGE value="Edit player and player photo" />
     <MESSAGE value="Delete player photo when player is deleted" />
     <MESSAGE value="Fixed player photo upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed player photo upload" />
+    <MESSAGE value="Get all performances function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get all performances function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -174,4 +174,30 @@ class GameController extends AbstractController
             )
         );
     }
+
+    /**
+     * @Route("/get-all-games", name="get_all_games", methods={"GET"})
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function getAllGames(SerializerInterface $serializer): JsonResponse
+    {
+        $games = $this->gameManager->getAllGames();
+
+        return new JsonResponse(
+            $serializer->serialize(
+                $games,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'home',
+                        'away',
+                        'competition',
+                        'performances'
+                    ],
+                ]
+            )
+        );
+    }
 }

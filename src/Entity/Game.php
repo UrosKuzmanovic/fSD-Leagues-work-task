@@ -179,6 +179,26 @@ class Game implements BaseEntityInterface
         return $this->homeClubGoals." - ".$this->awayClubGoals;
     }
 
+    public function getInverseResult(): string
+    {
+        return $this->awayClubGoals." - ".$this->homeClubGoals;
+    }
+
+    public function getClubsPlayed(): string
+    {
+        return $this->getHome()->getName()." vs ".$this->getAway()->getName();
+    }
+
+    public function getHomeID(): ?int
+    {
+        return $this->getHome()->getClubID();
+    }
+
+    public function getAwayID(): ?int
+    {
+        return $this->getAway()->getClubID();
+    }
+
     public function getId()
     {
         return $this->gameID;

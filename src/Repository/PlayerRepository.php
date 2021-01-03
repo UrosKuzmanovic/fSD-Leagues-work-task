@@ -40,6 +40,17 @@ class PlayerRepository extends ServiceEntityRepository
         }
     }
 
+    public function findPlayersByGame(int $homeID, int $awayID)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.club = :home')
+            ->orWhere('p.club = :away')
+            ->setParameter('home', $homeID)
+            ->setParameter('away', $awayID)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Player[] Returns an array of Player objects
     //  */
@@ -68,4 +79,5 @@ class PlayerRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

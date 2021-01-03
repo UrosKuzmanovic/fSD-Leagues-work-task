@@ -24,7 +24,8 @@
                 <td>{{ performance.getPlayer().getClub().getName() }}</td>
                 <td>{{ performance.getGame().getHome().getName() !=  performance.getPlayer().getClub().getName() ?
                     performance.getGame().getHome().getName() : performance.getGame().getAway().getName() }}</td>
-                <td>{{ performance.getGame().getResult() }}</td>
+                <td>{{ performance.getGame().getHome().getName() ==  performance.getPlayer().getClub().getName() ?
+                    performance.getGame().getResult() : performance.getGame().getInverseResult() }}</td>
                 <td>{{ performance.getGame().getCompetition().GetCompetitionName() }}</td>
                 <td>{{ performance.getGame().getGameDate() | date('d/m/Y') }}</td>
                 <td>Edit</td>

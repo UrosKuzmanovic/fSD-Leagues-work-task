@@ -47,4 +47,5 @@ class PerformanceController extends AbstractController
             ]
         );
     }
+
 }

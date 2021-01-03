@@ -5,7 +5,55 @@
 {% block body %}
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('performance_list') }}">LIST OF PERFORMANCES</a></p>
+
+    <label for="game">Game</label>
+    <select id="game" onchange="getPlayers()"></select><br>
+
+    <label for="player">Players</label>
+    <select id="player"></select>
+
+    <p id="error"></p>
 {% endblock %}
 
 {% block myJavascripts %}
+    <script>
+        let games = [];
+        let homeID;
+        let awayID;
+
+        $(document).ready(function () {
+            $.get("{{ path('get_all_games') }}", function (data) {
+                games = JSON.parse(data);
+                for (const game in games) {
+                    let gameDetails = games[game]['clubsPlayed'] + " " + games[game]['result'] + " (" + games[game]['gameDateString'] + ")";
+                    $("#game").append(new Option(gameDetails, games[game]['gameID']));
+                }
+            });
+        });
+
+        function getPlayers() {
+            const gameID = $('#game').val();
+            for (const game in games) {
+                if (games[game]['gameID'] == gameID) {
+                    homeID = games[game]['homeID'];
+                    awayID = games[game]['awayID'];
+                }
+            }
+            $.post("{{ path('get_all_players_game') }}",
+                {
+                    game:
+                        {
+                            homeID: homeID,
+                            awayID: awayID
+                        }
+                },
+                function (data) {
+                    let players = JSON.parse(data);
+                    $("#player").children().remove();
+                    for (const player in players) {
+                        $("#player").append(new Option(players[player]['fullName'], players[player]['playerID']));
+                    }
+                });
+        }
+    </script>
 {% endblock %}

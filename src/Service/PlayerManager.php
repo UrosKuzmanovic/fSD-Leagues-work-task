@@ -15,19 +15,22 @@ class PlayerManager
     private $clubManager;
     private $placeManager;
     private $imageManager;
+    private $gameManager;
 
     public function __construct(
         EntityValidator $validator,
         PlayerRepository $playerRepository,
         ClubManager $clubManager,
         PlaceManager $placeManager,
-        ImageManager $imageManager
+        ImageManager $imageManager,
+        GameManager $gameManager
     ) {
         $this->validator = $validator;
         $this->playerRepository = $playerRepository;
         $this->clubManager = $clubManager;
         $this->placeManager = $placeManager;
         $this->imageManager = $imageManager;
+        $this->gameManager = $gameManager;
     }
 
     public function getAllPlayers(): array
@@ -110,5 +113,10 @@ class PlayerManager
     public function deletePlayer(int $id)
     {
         $this->playerRepository->removePlayer($id);
+    }
+
+    public function findPlayersByGame($game)
+    {
+        return $this->playerRepository->findPlayersByGame($game['homeID'], $game['awayID']);
     }
 }
