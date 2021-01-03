@@ -83,10 +83,7 @@ class PlayerController extends AbstractController
         Request $request,
         SerializerInterface $serializer
     ): Response {
-        $result = $this->playerManager->addNewPlayer(
-            $newPlayer = $request->get('data'),
-            $this->getParameter('kernel.project_dir').'/public/uploads/'
-        );
+        $result = $this->playerManager->addNewPlayer($newPlayer = $request->get('data'));
 
         return new JsonResponse(
             $serializer->serialize(
@@ -144,10 +141,7 @@ class PlayerController extends AbstractController
         Request $request,
         SerializerInterface $serializer
     ): JsonResponse {
-        $result = $this->playerManager->editPlayer(
-            $request->get('data'),
-            $this->getParameter('kernel.project_dir').'/public/uploads/'
-        );
+        $result = $this->playerManager->editPlayer($request->get('data'));
 
         return new JsonResponse(
             $serializer->serialize(

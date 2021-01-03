@@ -17,19 +17,21 @@ class ImageManager
     }
 
     public function saveImage(
-        string $filepath,
         Player $player
-    ) {
+    ): string {
         $base64 = explode(',', $player->getBase64());
         $ext = $this->getExtension($base64[0]);
-        if (!str_contains($player->getPhotoName(), '.')
+        if ($player->getPhotoName() === null || !str_contains($player->getPhotoName(), '.')
         ) {
             $fileName = rand().'-'.$player->getFirstName()
                 .'-'.$player->getLastName().$ext;
         } else {
             $fileName = $player->getPhotoName();
         }
-        $file = fopen($filepath.$fileName, 'wb');
+        $file = fopen(
+            $this->appKernel->getProjectDir().'\public\uploads\\'.$fileName,
+            'wb'
+        );
         fwrite($file, base64_decode($base64[1]));
         fclose($file);
 
@@ -43,13 +45,19 @@ class ImageManager
 
     public function removeImage(Player $player)
     {
-        unlink($this->appKernel->getProjectDir().'\public\uploads\\'.$player->getPhotoName());
+        unlink(
+            $this->appKernel->getProjectDir().'\public\uploads\\'
+            .$player->getPhotoName()
+        );
     }
 
-    public function getBase64(string $path): string
+    public function getBase64(string $fileName): string
     {
-        $type = pathinfo($path, PATHINFO_EXTENSION);
-        $data = file_get_contents($path);
+        $type = pathinfo(
+            $this->appKernel->getProjectDir().'\public\uploads\\'.$fileName,
+            PATHINFO_EXTENSION
+        );
+        $data = file_get_contents($fileName);
 
         return 'data:image/'.$type.';base64,'.base64_encode($data);
     }

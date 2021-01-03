@@ -199,7 +199,7 @@ class Player implements BaseEntityInterface
         return $this;
     }
 
-    public function getPhotoName(): string
+    public function getPhotoName()
     {
         return $this->photoName;
     }

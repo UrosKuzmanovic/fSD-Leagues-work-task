@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change afterPath="$PROJECT_DIR$/src/Subscribers/ImageSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/ImageManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ImageManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PlayerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +204,7 @@
       <workItem from="1609592713640" duration="4284000" />
       <workItem from="1609597304846" duration="935000" />
       <workItem from="1609598655932" duration="18070000" />
-      <workItem from="1609676758257" duration="2379000" />
+      <workItem from="1609676758257" duration="2889000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -381,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609638016065</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Delete player photo when player is deleted">
+      <created>1609686938246</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1609686938246</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +432,8 @@
     <MESSAGE value="Added photo upload for new player" />
     <MESSAGE value="Image preview when adding player photo" />
     <MESSAGE value="Edit player and player photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit player and player photo" />
+    <MESSAGE value="Delete player photo when player is deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete player photo when player is deleted" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
