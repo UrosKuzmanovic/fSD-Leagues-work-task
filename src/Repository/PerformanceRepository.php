@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Performance;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,16 @@ class PerformanceRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Performance::class);
+    }
+
+    public function addPerformance(Performance $perf)
+    {
+        try {
+            $this->_em->persist($perf);
+            $this->_em->flush();
+            return $perf;
+        } catch (ORMException $e) {
+        }
     }
 
     // /**
@@ -47,4 +58,5 @@ class PerformanceRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

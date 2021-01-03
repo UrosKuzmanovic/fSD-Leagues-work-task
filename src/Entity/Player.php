@@ -228,4 +228,9 @@ class Player implements BaseEntityInterface
     {
         return $this->firstName." ".$this->lastName;
     }
+
+    public function getClubName(): ?string
+    {
+        return $this->getClub()->getName();
+    }
 }

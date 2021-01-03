@@ -10,7 +10,12 @@
     <select id="game" onchange="getPlayers()"></select><br>
 
     <label for="player">Players</label>
-    <select id="player"></select>
+    <select id="player"></select><br>
+
+    <label for="rating">Player rating</label>
+    <input type="number" id="rating"><br><br>
+
+    <button onclick="addPerformance()">Add performance</button>
 
     <p id="error"></p>
 {% endblock %}
@@ -22,11 +27,16 @@
         let awayID;
 
         $(document).ready(function () {
+            $('#error').html("Please wait until all boxes are filled.");
             $.get("{{ path('get_all_games') }}", function (data) {
                 games = JSON.parse(data);
                 for (const game in games) {
                     let gameDetails = games[game]['clubsPlayed'] + " " + games[game]['result'] + " (" + games[game]['gameDateString'] + ")";
                     $("#game").append(new Option(gameDetails, games[game]['gameID']));
+                    if (game == 0) {
+                        $("#game").val(games[game]['gameID']);
+                        getPlayers();
+                    }
                 }
             });
         });
@@ -51,9 +61,38 @@
                     let players = JSON.parse(data);
                     $("#player").children().remove();
                     for (const player in players) {
-                        $("#player").append(new Option(players[player]['fullName'], players[player]['playerID']));
+                        $("#player").append(new Option(players[player]['fullName'] + " (" + players[player]['clubName'] + ")", players[player]['playerID']));
+                        if (player == 0) {
+                            $("#player").val(players[player]['playerID']);
+                        }
+                    }
+                    $('#error').html("");
+                });
+        }
+
+        function addPerformance() {
+            let game = $('#game').val();
+            let player = $('#player').val();
+            let rating = $('#rating').val();
+            if (game == "" || player == "" || rating == "") {
+                $('#error').html("Please enter all of the fields");
+            } else {
+                $.post("{{ path('post_performance') }}", {
+                    data: {
+                        game: game,
+                        player: player,
+                        rating: rating
+                    }
+                }, function (data) {
+                    let obj = JSON.parse(data);
+                    if (obj['performanceID']) {
+                        alert("New performance was successfully added!");
+                        window.location.replace("{{ path('performance_list') }}")
+                    } else {
+                        alert("There was an error while adding new performance.");
                     }
                 });
+            }
         }
     </script>
 {% endblock %}
