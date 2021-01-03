@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Place list{% endblock %}
+
+{% block body %}
+    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
+    <p><a href="{{ path('add_performance') }}">ADD NEW PERFORMANCE</a></p>
+    <table>
+        <th>
+        <td>Player</td>
+        <td>Rating</td>
+        <td>Players club</td>
+        <td>Opposition club</td>
+        <td>Result</td>
+        <td>Competition</td>
+        <td>Date</td>
+        <td></td>
+        <td></td>
+        </th>
+        {% for performance in performances %}
+            <tr>
+                <td>{{ performance.getPlayer().getFullName() }}</td>
+                <td>{{ performance.getPlayerRating() }}</td>
+                <td>{{ performance.getPlayer().getClub().getName() }}</td>
+                <td>{{ performance.getGame().getHome().getName() !=  performance.getPlayer().getClub().getName() ?
+                    performance.getGame().getHome().getName() : performance.getGame().getAway().getName() }}</td>
+                <td>{{ performance.getGame().getResult() }}</td>
+                <td>{{ performance.getGame().getCompetition().GetCompetitionName() }}</td>
+                <td>{{ performance.getGame().getGameDate() | date('d/m/Y') }}</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block myJavascripts %}
+{% endblock %}
