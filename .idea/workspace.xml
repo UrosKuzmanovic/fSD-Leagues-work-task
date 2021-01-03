@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change afterPath="$PROJECT_DIR$/public/uploads/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/ImageManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PlayerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/EntityValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/EntityValidator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +201,7 @@
       <workItem from="1609547348151" duration="26000" />
       <workItem from="1609592713640" duration="4284000" />
       <workItem from="1609597304846" duration="935000" />
-      <workItem from="1609598655932" duration="13453000" />
+      <workItem from="1609598655932" duration="15180000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -357,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609601721235</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added photo upload for new player">
+      <created>1609634192038</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1609634192038</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +398,8 @@
     <MESSAGE value="Add new game function" />
     <MESSAGE value="Edit game function" />
     <MESSAGE value="Delete game function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete game function" />
+    <MESSAGE value="Added photo upload for new player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added photo upload for new player" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
