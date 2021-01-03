@@ -63,6 +63,13 @@ class Player implements BaseEntityInterface
      */
     private $performances;
 
+    /**
+     * @ORM\Column(type="string", length=255, name="photoName")
+     */
+    private $photoName;
+
+    private $base64;
+
     public function __construct()
     {
         $this->performances = new ArrayCollection();
@@ -190,6 +197,26 @@ class Player implements BaseEntityInterface
         }
 
         return $this;
+    }
+
+    public function getPhotoName(): string
+    {
+        return $this->photoName;
+    }
+
+    public function setPhotoName(string $photoName): void
+    {
+        $this->photoName = $photoName;
+    }
+
+    public function getBase64(): string
+    {
+        return $this->base64;
+    }
+
+    public function setBase64(string $base64): void
+    {
+        $this->base64 = $base64;
     }
 
     public function getId()

@@ -6,6 +6,7 @@ namespace App\Utils;
 
 use App\Entity\BaseEntityInterface;
 use App\Entity\Game;
+use App\Entity\Player;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class EntityValidator
@@ -36,6 +37,11 @@ class EntityValidator
             if ($entity->getHome()->getClubID() === $entity->getAway()
                     ->getClubID()
             ) {
+                return false;
+            }
+        }
+        if ($entity instanceof Player) {
+            if (!$entity->getBase64() || $entity->getBase64() === null || $entity->getBase64() === "") {
                 return false;
             }
         }

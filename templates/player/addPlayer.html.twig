@@ -52,18 +52,42 @@
                 <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
             {% endif %}
         {% endfor %}
-    </select><br><br>
+    </select><br>
+
+    <label for="photo">Photo</label>
+    <input id="photo" type="file" onchange="preparePhoto()"><br><br>
 
     <button id="add-player"
             onclick="{{ editPlayer is defined ? 'editPlayer()' : 'addPlayer()' }}">{{ editPlayer is defined ? "Edit" : "Add" }}
         player
     </button>
 
+    <!--<button onclick="postPhoto()">Photo test</button>-->
+
     <p id="error"></p>
 {% endblock %}
 
 {% block myJavascripts %}
     <script>
+        let image64 = "";
+        let name;
+
+        function preparePhoto() {
+            const file = document.querySelector('input[type=file]').files[0];
+            const reader = new FileReader();
+            reader.addEventListener("load", function () {
+                image64 = reader.result;
+            }, false);
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function postPhoto() {
+            $.post("{{ path("post_photo") }}", {'photo': image64}, function () {
+            });
+        }
+
         function addPlayer() {
             let firstName = $('#firstName').val();
             let lastName = $('#lastName').val();
@@ -72,7 +96,8 @@
             let position = $('#position').val();
             let place = $('#place').val();
             let club = $('#club').val();
-            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "") {
+
+            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "" || image64 === "") {
                 $('#error').html("Please enter all of the fields.");
             } else {
                 $.post("{{ path('post_player') }}", {
@@ -83,7 +108,8 @@
                         dateOfBirth: dateOfBirth,
                         position: position,
                         placeID: place,
-                        clubID: club
+                        clubID: club,
+                        base64: image64
                     }
                 }, function (data) {
                     let obj = JSON.parse(data);
