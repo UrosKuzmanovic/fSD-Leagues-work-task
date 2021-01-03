@@ -68,7 +68,7 @@ class PlayerManager
         return $this->validator->validate($player);
     }
 
-    public function editPlayer($editedPlayer)
+    public function editPlayer($editedPlayer, string $filepath)
     {
         $player = $this->findPlayerById($editedPlayer['playerID']);
         $player->setFirstName($editedPlayer['firstName']);
@@ -87,7 +87,21 @@ class PlayerManager
         $player->setPlace(
             $this->placeManager->findPlaceById($editedPlayer['placeID'])
         );
+        if (str_contains($editedPlayer['base64'], 'data:image')) {
+            $player->setBase64($editedPlayer['base64']);
+        } else {
+            $player->setBase64(
+                $this->imageManager->getBase64(
+                    $filepath.$player->getPhotoName()
+                )
+            );
+        }
         if ($this->validator->validate($player)) {
+            $this->imageManager->saveImage(
+                $filepath,
+                $player
+            );
+
             return $this->playerRepository->addPlayer($player);
         }
 

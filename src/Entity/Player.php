@@ -121,16 +121,16 @@ class Player implements BaseEntityInterface
         return $this->dateOfBirth;
     }
 
-    public function getDateOfBirthString(): string
-    {
-        return $this->dateOfBirth->format('Y-m-d');
-    }
-
     public function setDateOfBirth(\DateTimeInterface $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;
 
         return $this;
+    }
+
+    public function getDateOfBirthString(): string
+    {
+        return $this->dateOfBirth->format('Y-m-d');
     }
 
     public function getPositions(): ?string
@@ -209,7 +209,7 @@ class Player implements BaseEntityInterface
         $this->photoName = $photoName;
     }
 
-    public function getBase64(): string
+    public function getBase64()
     {
         return $this->base64;
     }
