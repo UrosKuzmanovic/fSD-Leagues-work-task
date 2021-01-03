@@ -55,7 +55,9 @@
     </select><br>
 
     <label for="photo">Photo</label>
-    <input id="photo" type="file" onchange="preparePhoto()"><br><br>
+    <input id="photo" type="file" onchange="preparePhoto()"><br>
+
+    <img id="img-preview" src="#" alt="Image preview" width="auto" height="250px"><br><br>
 
     <button id="add-player"
             onclick="{{ editPlayer is defined ? 'editPlayer()' : 'addPlayer()' }}">{{ editPlayer is defined ? "Edit" : "Add" }}
@@ -77,6 +79,7 @@
             const reader = new FileReader();
             reader.addEventListener("load", function () {
                 image64 = reader.result;
+                $('#img-preview').attr("src", image64);
             }, false);
             if (file) {
                 reader.readAsDataURL(file);
