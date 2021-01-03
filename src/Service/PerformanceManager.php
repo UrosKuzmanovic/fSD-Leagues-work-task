@@ -32,7 +32,7 @@ class PerformanceManager
         return $this->performanceRepository->findAll();
     }
 
-    public function addNewPerformance($newPerf)
+    public function addNewPerformance($newPerf): Performance
     {
         $player = $this->playerManager->findPlayerById($newPerf['player']);
         $game = $this->gameManager->findGameById($newPerf['game']);
@@ -40,7 +40,21 @@ class PerformanceManager
         $perf->setPlayer($player);
         $perf->setGame($game);
         $perf->setPlayerRating($newPerf['rating']);
-        if ($this->validator->validate($player)) {
+        if ($this->validator->validate($perf)) {
+            return $this->performanceRepository->addPerformance($perf);
+        }
+    }
+
+    public function findPerformanceById($id): ?Performance
+    {
+        return $this->performanceRepository->find($id);
+    }
+
+    public function editPerformance($editedPerf): Performance
+    {
+        $perf = $this->performanceRepository->find($editedPerf['perfID']);
+        $perf->setPlayerRating($editedPerf['rating']);
+        if ($this->validator->validate($perf)) {
             return $this->performanceRepository->addPerformance($perf);
         }
     }

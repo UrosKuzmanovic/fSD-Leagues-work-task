@@ -199,6 +199,11 @@ class Game implements BaseEntityInterface
         return $this->getAway()->getClubID();
     }
 
+    public function getGameDetails(): string
+    {
+        return $this->getHome()->getName()." vs ".$this->getAway()->getName()." ".$this->getResult()." (".$this->getGameDateString().")";
+    }
+
     public function getId()
     {
         return $this->gameID;

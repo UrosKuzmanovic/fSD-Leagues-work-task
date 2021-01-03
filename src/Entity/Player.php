@@ -157,18 +157,6 @@ class Player implements BaseEntityInterface
         return $this;
     }
 
-    public function getClub(): ?Club
-    {
-        return $this->club;
-    }
-
-    public function setClub(?Club $club): self
-    {
-        $this->club = $club;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Performance[]
      */
@@ -229,8 +217,26 @@ class Player implements BaseEntityInterface
         return $this->firstName." ".$this->lastName;
     }
 
+    public function getPlayerDetails(): string
+    {
+        return $this->firstName." ".$this->lastName." (".$this->getClubName()
+            .")";
+    }
+
     public function getClubName(): ?string
     {
         return $this->getClub()->getName();
+    }
+
+    public function getClub(): ?Club
+    {
+        return $this->club;
+    }
+
+    public function setClub(?Club $club): self
+    {
+        $this->club = $club;
+
+        return $this;
     }
 }

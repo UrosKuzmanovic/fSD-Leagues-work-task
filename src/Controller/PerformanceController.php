@@ -80,4 +80,45 @@ class PerformanceController extends AbstractController
         );
     }
 
+    /**
+     * @Route("/edit", name="get_edit_performance", methods={"GET"})
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function getEditPerformance(Request $request): Response
+    {
+        $performance = $this->performanceManager->findPerformanceById($request->get('id'));
+
+        return $this->render(
+            'performance/addPerformance.html.twig',
+            [
+                'controller_name' => 'PlaceController',
+                'editPerformance'       => $performance,
+            ]
+        );
+    }
+
+    /**
+     * @Route("/edit", name="edit_performance", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     *
+     * @return JsonResponse
+     */
+    public function editPerformance(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $result = $this->performanceManager->editPerformance($request->get('data'));
+
+        return new JsonResponse($serializer->serialize($result, 'json',
+            [
+                'ignored_attributes' => [
+                    'game',
+                    'player',
+                ],
+            ]));
+    }
+
 }

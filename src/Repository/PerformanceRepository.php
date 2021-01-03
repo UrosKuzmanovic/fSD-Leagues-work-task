@@ -20,7 +20,7 @@ class PerformanceRepository extends ServiceEntityRepository
         parent::__construct($registry, Performance::class);
     }
 
-    public function addPerformance(Performance $perf)
+    public function addPerformance(Performance $perf): Performance
     {
         try {
             $this->_em->persist($perf);

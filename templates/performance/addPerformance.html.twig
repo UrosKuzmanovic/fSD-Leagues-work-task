@@ -1,21 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add performance{% endblock %}
+{% block title %}{{ editPerformance is defined ? 'Edit' : 'Add' }} performance{% endblock %}
 
 {% block body %}
+
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('performance_list') }}">LIST OF PERFORMANCES</a></p>
 
-    <label for="game">Game</label>
-    <select id="game" onchange="getPlayers()"></select><br>
+    <input id="perfID" hidden value="{{ editPerformance is defined ? editPerformance.performanceID : '' }}">
 
-    <label for="player">Players</label>
-    <select id="player"></select><br>
+    <input id="gameID" hidden value="{{ editPerformance is defined ? editPerformance.game.gameID : '' }}">
+    <label for="game">Game</label>
+    {% if editPerformance is defined %}
+        <select id="game" disabled>
+            <option></option>
+        </select><br>
+    {% else %}
+        <select id="game" onchange="getPlayers()"></select><br>
+    {% endif %}
+
+    <input id="playerID" hidden value="{{ editPerformance is defined ? editPerformance.player.playerID : '' }}">
+    <label for="player">Player</label>
+    {% if editPerformance is defined %}
+        <select id="player" disabled>
+            <option></option>
+        </select><br>
+    {% else %}
+        <select id="player"></select><br>
+    {% endif %}
 
     <label for="rating">Player rating</label>
-    <input type="number" id="rating"><br><br>
+    <input type="number" id="rating" value="{{ editPerformance is defined ? editPerformance.playerRating : '' }}"><br>
+    <br>
 
-    <button onclick="addPerformance()">Add performance</button>
+    <button onclick="{{ editPerformance is defined ? 'editPerformance()' : 'addPerformance()' }}">{{ editPerformance is defined ? 'Edit' : 'Add' }}
+        performance
+    </button>
 
     <p id="error"></p>
 {% endblock %}
@@ -37,6 +57,9 @@
                         $("#game").val(games[game]['gameID']);
                         getPlayers();
                     }
+                    if (games[game]['gameID'] == $('#gameID').val()) {
+                        $("#game").val(games[game]['gameID']);
+                    }
                 }
             });
         });
@@ -44,7 +67,10 @@
         function getPlayers() {
             const gameID = $('#game').val();
             for (const game in games) {
-                if (games[game]['gameID'] == gameID) {
+                if ($('#gameID').val() != "" && $('#gameID').val() == games[game]['gameID']) {
+                    homeID = games[game]['homeID'];
+                    awayID = games[game]['awayID'];
+                } else if (games[game]['gameID'] == gameID) {
                     homeID = games[game]['homeID'];
                     awayID = games[game]['awayID'];
                 }
@@ -65,8 +91,12 @@
                         if (player == 0) {
                             $("#player").val(players[player]['playerID']);
                         }
+                        if (players[player]['playerID'] == $('#playerID').val()) {
+                            $("#player").val(players[player]['playerID'])
+                        }
+                        $('#error').html("");
                     }
-                    $('#error').html("");
+
                 });
         }
 
@@ -90,6 +120,28 @@
                         window.location.replace("{{ path('performance_list') }}")
                     } else {
                         alert("There was an error while adding new performance.");
+                    }
+                });
+            }
+        }
+
+        function editPerformance() {
+            let rating = $('#rating').val();
+            if (rating == "") {
+                $('#error').html("Please enter all of the fields");
+            } else {
+                $.post("{{ path('edit_performance') }}", {
+                    data: {
+                        perfID: $('#perfID').val(),
+                        rating: rating
+                    }
+                }, function (data) {
+                    let obj = JSON.parse(data);
+                    if (obj['performanceID']) {
+                        alert("Performance was successfully edited!");
+                        window.location.replace("{{ path('performance_list') }}")
+                    } else {
+                        alert("There was an error while editing new performance.");
                     }
                 });
             }
