@@ -5,9 +5,17 @@ namespace App\Service;
 
 
 use App\Entity\Player;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class ImageManager
 {
+    private $appKernel;
+
+    public function __construct(KernelInterface $appKernel)
+    {
+        $this->appKernel = $appKernel;
+    }
+
     public function saveImage(
         string $filepath,
         Player $player
@@ -31,6 +39,11 @@ class ImageManager
     private function getExtension(string $text): string
     {
         return '.'.explode(';', explode('/', $text)[1])[0];
+    }
+
+    public function removeImage(Player $player)
+    {
+        unlink($this->appKernel->getProjectDir().'\public\uploads\\'.$player->getPhotoName());
     }
 
     public function getBase64(string $path): string
