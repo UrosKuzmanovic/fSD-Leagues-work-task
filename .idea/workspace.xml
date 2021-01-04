@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change beforePath="$PROJECT_DIR$/src/Controller/PerformanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PerformanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PerformanceManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PerformanceManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210104225524.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fSD-zadatak-2-Lige.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fSD-zadatak-2-Lige.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +141,8 @@
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lpTOm8M3jmWVctNf3XcJrM3TMZ" />
@@ -205,7 +217,9 @@
       <workItem from="1609592713640" duration="4284000" />
       <workItem from="1609597304846" duration="935000" />
       <workItem from="1609598655932" duration="18070000" />
-      <workItem from="1609676758257" duration="14627000" />
+      <workItem from="1609676758257" duration="14948000" />
+      <workItem from="1609797904545" duration="10000" />
+      <workItem from="1609800571883" duration="1792000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -424,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609718323757</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Delete performance function">
+      <created>1609718728746</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1609718728746</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +465,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Get all places function" />
     <MESSAGE value="Edit place function" />
     <MESSAGE value="Delete place function" />
     <MESSAGE value="Get all clubs function" />
@@ -469,7 +489,8 @@
     <MESSAGE value="Find all games and players when adding new performance" />
     <MESSAGE value="Add new performance function" />
     <MESSAGE value="Edit performance function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit performance function" />
+    <MESSAGE value="Delete performance function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete performance function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

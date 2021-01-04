@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+    <label for="email">E-mail</label>
+    <input type="text" id="email">
+
+    <label for="password">Password</label>
+    <input type="password" id="password">
+
+    <button onclick="login()">Login</button>
+
+{% endblock %}
+
+{% block myJavascripts %}
+    <script>
+        function login() {
+            $.post("{{ path('login') }}", {email: $('#email').val(), password: $('#password').val()});
+        }
+    </script>
+{% endblock %}
