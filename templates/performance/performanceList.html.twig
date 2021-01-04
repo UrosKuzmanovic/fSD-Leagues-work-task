@@ -18,7 +18,7 @@
         <td></td>
         </th>
         {% for performance in performances %}
-            <tr>
+            <tr id="row-{{ performance.getPerformanceID() }}">
                 <td>{{ performance.getPlayer().getFullName() }}</td>
                 <td>{{ performance.getPlayerRating() }}</td>
                 <td>{{ performance.getPlayer().getClub().getName() }}</td>
@@ -29,11 +29,29 @@
                 <td>{{ performance.getGame().getCompetition().GetCompetitionName() }}</td>
                 <td>{{ performance.getGame().getGameDate() | date('d/m/Y') }}</td>
                 <td><a href="{{ path('get_edit_performance', {'id': performance.getPerformanceID()}) }}">Edit</a></td>
-                <td>Delete</td>
+                <td onclick="deletePerformance({{ performance.getPerformanceID }}, 'row-{{ performance.getPerformanceID() }}');">Delete</td>
             </tr>
         {% endfor %}
     </table>
 {% endblock %}
 
 {% block myJavascripts %}
+    <script>
+        function deletePerformance(id, row){
+            if (confirm("You are about to delete this performance.")) {
+                $.ajax({
+                    url: "{{ path('delete_performance') }}",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'id': id
+                    },
+                    success: function(){
+                        $('#'+row).remove();
+                        alert("Performance was successfully deleted!");
+                    }
+                })
+            }
+        }
+    </script>
 {% endblock %}

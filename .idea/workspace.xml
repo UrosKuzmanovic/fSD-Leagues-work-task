@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PerformanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PerformanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/PerformanceManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PerformanceManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +205,7 @@
       <workItem from="1609592713640" duration="4284000" />
       <workItem from="1609597304846" duration="935000" />
       <workItem from="1609598655932" duration="18070000" />
-      <workItem from="1609676758257" duration="14179000" />
+      <workItem from="1609676758257" duration="14627000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -421,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609715925684</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Edit performance function">
+      <created>1609718323757</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1609718323757</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +444,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add new place function" />
     <MESSAGE value="Get all places function" />
     <MESSAGE value="Edit place function" />
     <MESSAGE value="Delete place function" />
@@ -466,7 +468,8 @@
     <MESSAGE value="Get all performances function" />
     <MESSAGE value="Find all games and players when adding new performance" />
     <MESSAGE value="Add new performance function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new performance function" />
+    <MESSAGE value="Edit performance function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit performance function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

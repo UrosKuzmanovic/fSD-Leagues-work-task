@@ -58,4 +58,9 @@ class PerformanceManager
             return $this->performanceRepository->addPerformance($perf);
         }
     }
+
+    public function deletePerformance($id)
+    {
+        $this->performanceRepository->removePerformance($id);
+    }
 }

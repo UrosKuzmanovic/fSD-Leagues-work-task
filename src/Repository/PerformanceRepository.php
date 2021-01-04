@@ -30,6 +30,15 @@ class PerformanceRepository extends ServiceEntityRepository
         }
     }
 
+    public function removePerformance($id)
+    {
+        try {
+            $this->_em->remove($this->find($id));
+            $this->_em->flush();
+        } catch (ORMException $e) {
+        }
+    }
+
     // /**
     //  * @return Performance[] Returns an array of Performance objects
     //  */

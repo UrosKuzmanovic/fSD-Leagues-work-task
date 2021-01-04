@@ -121,4 +121,26 @@ class PerformanceController extends AbstractController
             ]));
     }
 
+    /**
+     * @Route("/delete", name="delete_performance", methods={"POST"})
+     * @param Request             $request
+     * @param SerializerInterface $serializer
+     * @return JsonResponse
+     */
+    public function deletePerformance(
+        Request $request,
+        SerializerInterface $serializer
+    ): JsonResponse {
+        $this->performanceManager->deletePerformance($request->get('id'));
+        $performances = $this->performanceManager->getAllPerformances();
+
+        return new JsonResponse($serializer->serialize($performances, 'json',
+            [
+                'ignored_attributes' => [
+                    'game',
+                    'player',
+                ],
+            ]));
+    }
+
 }
