@@ -4,5 +4,9 @@
 
 {% block body %}
     <h1>You don't have permission to acces this page!</h1>
-    <h3><a href="{{ path('home') }}">Return to home page</a></h3>
+    {% if is_granted("ROLE_ADMIN") %}
+        <h3><a href="{{ path('home') }}">Return to home page</a></h3>
+    {% else %}
+        <h3><a href="{{ path('performance_list') }}">Return to performance list</a></h3>
+    {% endif %}
 {% endblock %}

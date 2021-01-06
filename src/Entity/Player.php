@@ -61,6 +61,12 @@ class Player extends User implements BaseEntityInterface
      */
     private $photoName;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false, name="id", referencedColumnName="id")
+     */
+    private $user;
+
     private $base64;
 
     public function __construct()
@@ -226,5 +232,15 @@ class Player extends User implements BaseEntityInterface
         $this->club = $club;
 
         return $this;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function setUser($user): void
+    {
+        $this->user = $user;
     }
 }

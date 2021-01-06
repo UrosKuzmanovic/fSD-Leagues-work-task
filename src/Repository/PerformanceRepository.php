@@ -39,6 +39,17 @@ class PerformanceRepository extends ServiceEntityRepository
         }
     }
 
+    public function getAllPerformancesForPlayer(string $userEmail)
+    {
+        return $this->createQueryBuilder('n')
+            ->join('n.player', 'p')
+            ->join('p.user', 'u')
+            ->andWhere('u.email = :userEmail')
+            ->setParameter('userEmail', $userEmail)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Performance[] Returns an array of Performance objects
     //  */

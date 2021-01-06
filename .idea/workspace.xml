@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change afterPath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/denied.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PerformanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PerformanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PerformanceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/UserAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/UserAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PerformanceManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PerformanceManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/denied.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/denied.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +224,10 @@
       <workItem from="1609939949033" duration="1784000" />
       <workItem from="1609941794631" duration="1770000" />
       <workItem from="1609946742667" duration="1780000" />
-      <workItem from="1609948561259" duration="616000" />
+      <workItem from="1609948561259" duration="1597000" />
+      <workItem from="1609961391394" duration="1779000" />
+      <workItem from="1609963229598" duration="1777000" />
+      <workItem from="1609965062281" duration="969000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -479,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609942316012</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Access control for CRUD operations">
+      <created>1609949460840</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1609949460840</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +508,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add new club function" />
     <MESSAGE value="Fixed Add new club function" />
     <MESSAGE value="Edit club function, fixed Edit place function" />
     <MESSAGE value="Delete club function" />
@@ -524,7 +532,8 @@
     <MESSAGE value="Added User entity, User provider, Security Controller" />
     <MESSAGE value="Login function, new Security Controller and UserAuth class" />
     <MESSAGE value="Inheritance mapping for User and Player entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inheritance mapping for User and Player entities" />
+    <MESSAGE value="Access control for CRUD operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Access control for CRUD operations" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -18,8 +18,9 @@ class PerformanceController extends AbstractController
 {
     private $performanceManager;
 
-    public function __construct(PerformanceManager $performanceManager)
-    {
+    public function __construct(
+        PerformanceManager $performanceManager
+    ) {
         $this->performanceManager = $performanceManager;
     }
 
@@ -29,7 +30,12 @@ class PerformanceController extends AbstractController
      */
     public function getPerformanceList(): Response
     {
-        $performances = $this->performanceManager->getAllPerformances();
+        if ($this->isGranted("ROLE_ADMIN")) {
+            $performances = $this->performanceManager->getAllPerformances();
+        } else {
+            $userEmail = $this->getUser()->getUsername();
+            $performances = $this->performanceManager->getAllPerformancesForPlayer($userEmail);
+        }
 
         return $this->render(
             'performance/performanceList.html.twig',
@@ -93,13 +99,15 @@ class PerformanceController extends AbstractController
      */
     public function getEditPerformance(Request $request): Response
     {
-        $performance = $this->performanceManager->findPerformanceById($request->get('id'));
+        $performance = $this->performanceManager->findPerformanceById(
+            $request->get('id')
+        );
 
         return $this->render(
             'performance/addPerformance.html.twig',
             [
                 'controller_name' => 'PlaceController',
-                'editPerformance'       => $performance,
+                'editPerformance' => $performance,
             ]
         );
     }
@@ -116,15 +124,22 @@ class PerformanceController extends AbstractController
         Request $request,
         SerializerInterface $serializer
     ): JsonResponse {
-        $result = $this->performanceManager->editPerformance($request->get('data'));
+        $result = $this->performanceManager->editPerformance(
+            $request->get('data')
+        );
 
-        return new JsonResponse($serializer->serialize($result, 'json',
-            [
-                'ignored_attributes' => [
-                    'game',
-                    'player',
-                ],
-            ]));
+        return new JsonResponse(
+            $serializer->serialize(
+                $result,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'game',
+                        'player',
+                    ],
+                ]
+            )
+        );
     }
 
     /**
@@ -132,6 +147,7 @@ class PerformanceController extends AbstractController
      * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
+     *
      * @return JsonResponse
      */
     public function deletePerformance(
@@ -141,13 +157,18 @@ class PerformanceController extends AbstractController
         $this->performanceManager->deletePerformance($request->get('id'));
         $performances = $this->performanceManager->getAllPerformances();
 
-        return new JsonResponse($serializer->serialize($performances, 'json',
-            [
-                'ignored_attributes' => [
-                    'game',
-                    'player',
-                ],
-            ]));
+        return new JsonResponse(
+            $serializer->serialize(
+                $performances,
+                'json',
+                [
+                    'ignored_attributes' => [
+                        'game',
+                        'player',
+                    ],
+                ]
+            )
+        );
     }
 
 }

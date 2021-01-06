@@ -217,7 +217,8 @@ class PlayerController extends AbstractController
                     'ignored_attributes' => [
                         'club',
                         'place',
-                        'performances'
+                        'performances',
+                        'user'
                     ],
                 ]
             )

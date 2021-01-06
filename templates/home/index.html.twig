@@ -3,7 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1>Welcome!</h1>
+    <h1>Welcome Admin!</h1>
     <h2>Options:</h2>
     <table>
         <tr>
@@ -33,7 +33,7 @@
         </tr>
     </table>
 
-    <br><br>
+    <br>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <p><a href="{{ path('app_logout') }}">Logout</a></p>
     {% else %}

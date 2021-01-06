@@ -63,4 +63,9 @@ class PerformanceManager
     {
         $this->performanceRepository->removePerformance($id);
     }
+
+    public function getAllPerformancesForPlayer(string $userEmail)
+    {
+        return $this->performanceRepository->getAllPerformancesForPlayer($userEmail);
+    }
 }

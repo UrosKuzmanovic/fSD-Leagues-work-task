@@ -3,8 +3,10 @@
 {% block title %}Performance list{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('add_performance') }}">ADD NEW PERFORMANCE</a></p>
+    {% if is_granted("ROLE_ADMIN") %}
+        <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
+        <p><a href="{{ path('add_performance') }}">ADD NEW PERFORMANCE</a></p>
+    {% endif %}
     <table>
         <th>
         <td>Player</td>
@@ -14,8 +16,10 @@
         <td>Result</td>
         <td>Competition</td>
         <td>Date</td>
-        <td></td>
-        <td></td>
+        {% if is_granted("ROLE_ADMIN") %}
+            <td></td>
+            <td></td>
+        {% endif %}
         </th>
         {% for performance in performances %}
             <tr id="row-{{ performance.getPerformanceID() }}">
@@ -28,8 +32,13 @@
                     performance.getGame().getResult() : performance.getGame().getInverseResult() }}</td>
                 <td>{{ performance.getGame().getCompetition().GetCompetitionName() }}</td>
                 <td>{{ performance.getGame().getGameDate() | date('d/m/Y') }}</td>
-                <td><a href="{{ path('get_edit_performance', {'id': performance.getPerformanceID()}) }}">Edit</a></td>
-                <td onclick="deletePerformance({{ performance.getPerformanceID }}, 'row-{{ performance.getPerformanceID() }}');">Delete</td>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <td><a href="{{ path('get_edit_performance', {'id': performance.getPerformanceID()}) }}">Edit</a>
+                    </td>
+                    <td onclick="deletePerformance({{ performance.getPerformanceID }}, 'row-{{ performance.getPerformanceID() }}');">
+                        Delete
+                    </td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>
@@ -37,7 +46,7 @@
 
 {% block myJavascripts %}
     <script>
-        function deletePerformance(id, row){
+        function deletePerformance(id, row) {
             if (confirm("You are about to delete this performance.")) {
                 $.ajax({
                     url: "{{ path('delete_performance') }}",
@@ -46,8 +55,8 @@
                     data: {
                         'id': id
                     },
-                    success: function(){
-                        $('#'+row).remove();
+                    success: function () {
+                        $('#' + row).remove();
                         alert("Performance was successfully deleted!");
                     }
                 })
