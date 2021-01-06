@@ -18,7 +18,7 @@
         <td></td>
         </th>
         {% for player in players %}
-            <tr id="row-{{ player.getPlayerID() }}">
+            <tr id="row-{{ player.getId() }}">
                 <td>{{ player.getFirstName() }}</td>
                 <td>{{ player.getLastName() }}</td>
                 <td>{{ player.getJmbg() }}</td>
@@ -26,8 +26,8 @@
                 <td>{{ player.getPositions() }}</td>
                 <td>{{ player.getPlace.getName() }}</td>
                 <td>{{ player.getClub.getName() }}</td>
-                <td><a href="{{ path("get_edit_player", {'id':player.getPlayerID()}) }}">Edit</a></td>
-                <td onclick="deletePlayer({{ player.getPlayerID() }}, 'row-{{ player.getPLayerID() }}');">Delete</td>
+                <td><a href="{{ path("get_edit_player", {'id':player.getId()}) }}">Edit</a></td>
+                <td onclick="deletePlayer({{ player.getId() }}, 'row-{{ player.getId() }}');">Delete</td>
             </tr>
         {% endfor %}
     </table>

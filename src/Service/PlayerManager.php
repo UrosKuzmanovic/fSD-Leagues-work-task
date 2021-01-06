@@ -7,6 +7,7 @@ namespace App\Service;
 use App\Entity\Player;
 use App\Repository\PlayerRepository;
 use App\Utils\EntityValidator;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class PlayerManager
 {
@@ -16,6 +17,7 @@ class PlayerManager
     private $placeManager;
     private $imageManager;
     private $gameManager;
+    private $passwordEncoder;
 
     public function __construct(
         EntityValidator $validator,
@@ -23,7 +25,8 @@ class PlayerManager
         ClubManager $clubManager,
         PlaceManager $placeManager,
         ImageManager $imageManager,
-        GameManager $gameManager
+        GameManager $gameManager,
+        UserPasswordEncoderInterface $passwordEncoder
     ) {
         $this->validator = $validator;
         $this->playerRepository = $playerRepository;
@@ -31,6 +34,7 @@ class PlayerManager
         $this->placeManager = $placeManager;
         $this->imageManager = $imageManager;
         $this->gameManager = $gameManager;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function getAllPlayers(): array
@@ -56,6 +60,13 @@ class PlayerManager
             $this->placeManager->findPlaceById($newPlayer['placeID'])
         );
         $player->setBase64($newPlayer['base64']);
+        $player->setEmail($newPlayer['email']);
+        $player->setPassword(
+            $this->passwordEncoder->encodePassword(
+                $player,
+                $newPlayer['password']
+            )
+        );
 
         if ($this->validator->validate($player)) {
             $player->setPhotoName(
@@ -96,6 +107,8 @@ class PlayerManager
                 )
             );
         }
+        $player->setEmail($editedPlayer['email']);
+
         if ($this->validator->validate($player)) {
             $this->imageManager->saveImage($player);
 
@@ -117,6 +130,9 @@ class PlayerManager
 
     public function findPlayersByGame($game)
     {
-        return $this->playerRepository->findPlayersByGame($game['homeID'], $game['awayID']);
+        return $this->playerRepository->findPlayersByGame(
+            $game['homeID'],
+            $game['awayID']
+        );
     }
 }

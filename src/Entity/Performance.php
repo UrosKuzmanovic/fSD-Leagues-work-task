@@ -23,10 +23,9 @@ class Performance
     private $playerRating;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Player::class, inversedBy="performances")
-     * @ORM\JoinColumn(nullable=false, name="playerID", referencedColumnName="playerID")
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="performances")
      */
-    private $player;
+    protected $player;
 
     /**
      * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="performances")

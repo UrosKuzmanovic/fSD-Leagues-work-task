@@ -87,12 +87,12 @@
                     let players = JSON.parse(data);
                     $("#player").children().remove();
                     for (const player in players) {
-                        $("#player").append(new Option(players[player]['fullName'] + " (" + players[player]['clubName'] + ")", players[player]['playerID']));
+                        $("#player").append(new Option(players[player]['fullName'] + " (" + players[player]['clubName'] + ")", players[player]['id']));
                         if (player == 0) {
-                            $("#player").val(players[player]['playerID']);
+                            $("#player").val(players[player]['id']);
                         }
                         if (players[player]['playerID'] == $('#playerID').val()) {
-                            $("#player").val(players[player]['playerID'])
+                            $("#player").val(players[player]['id'])
                         }
                         $('#error').html("");
                     }

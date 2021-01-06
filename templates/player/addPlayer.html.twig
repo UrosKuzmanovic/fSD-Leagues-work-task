@@ -6,13 +6,21 @@
     <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
     <p><a href="{{ path('player_list') }}">LIST OF PLAYERS</a></p>
 
-    <input id="playerID" value="{{ editPlayer is defined ? editPlayer.getPlayerID() : '' }}" hidden>
+    <input id="playerID" value="{{ editPlayer is defined ? editPlayer.getId() : '' }}" hidden>
 
     <label for="firstName">First name</label>
     <input type="text" id="firstName" value="{{ editPlayer is defined ? editPlayer.getFirstName() : '' }}"><br>
 
     <label for="lastName">Last name</label>
     <input type="text" id="lastName" value="{{ editPlayer is defined ? editPlayer.getLastName() : '' }}"><br>
+
+    <label for="email">E-mail</label>
+    <input type="text" id="email" value="{{ editPlayer is defined ? editPlayer.getEmail() : '' }}"><br>
+
+    {% if editPlayer is not defined %}
+        <label for="password">Password</label>
+        <input type="password" id="password"><br>
+    {% endif %}
 
     <label for="jmbg">JMBG</label>
     <input type="text" id="jmbg" value="{{ editPlayer is defined ? editPlayer.getJmbg() : '' }}"><br>
@@ -57,7 +65,8 @@
     <label for="photo">Photo</label>
     <input id="photo" type="file" onchange="preparePhoto()"><br>
 
-    <img id="img-preview" src="{{ editPlayer is defined ? editPlayer.getBase64() : '#' }}" alt="Image preview" width="auto" height="250px"><br><br>
+    <img id="img-preview" src="{{ editPlayer is defined ? editPlayer.getBase64() : '#' }}" alt="Image preview"
+         width="auto" height="250px"><br><br>
 
     <button id="add-player"
             onclick="{{ editPlayer is defined ? 'editPlayer()' : 'addPlayer()' }}">{{ editPlayer is defined ? "Edit" : "Add" }}
@@ -91,7 +100,9 @@
             let position = $('#position').val();
             let place = $('#place').val();
             let club = $('#club').val();
-            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "" || image64 === "") {
+            let email = $('#email').val();
+            let password = $('#password').val();
+            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "" || image64 === "" || email === "" || password === "") {
                 $('#error').html("Please enter all of the fields.");
             } else {
                 $.post("{{ path('post_player') }}", {
@@ -103,11 +114,13 @@
                         position: position,
                         placeID: place,
                         clubID: club,
-                        base64: image64
+                        base64: image64,
+                        email: email,
+                        password: password
                     }
                 }, function (data) {
                     let obj = JSON.parse(data);
-                    if (obj['playerID']) {
+                    if (obj['id']) {
                         alert("New place was successfully added!");
                         window.location.replace("{{ path('player_list') }}")
                     } else {
@@ -125,7 +138,8 @@
             let position = $('#position').val();
             let place = $('#place').val();
             let club = $('#club').val();
-            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "") {
+            let email = $('#email').val();
+            if (firstName === "" || lastName === "" || jmbg === "" || dateOfBirth === "" || position === "" || place === "" || club === "" || email === "") {
                 $('#error').html("Please enter all of the fields.");
             } else {
                 $.post("{{ path('edit_player') }}", {
@@ -138,11 +152,12 @@
                         position: position,
                         placeID: place,
                         clubID: club,
-                        base64: image64
+                        base64: image64,
+                        email: email
                     }
                 }, function (data) {
                     let obj = JSON.parse(data);
-                    if (obj['playerID']) {
+                    if (obj['id']) {
                         alert("Player was successfully edited!");
                         window.location.replace("{{ path('player_list') }}")
                     } else {

@@ -11,15 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=PlayerRepository::class)
  */
-class Player implements BaseEntityInterface
+class Player extends User implements BaseEntityInterface
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer", name="playerID")
-     */
-    private $playerID;
-
     /**
      * @ORM\Column(type="string", length=255, name="firstName")
      */
@@ -61,7 +54,7 @@ class Player implements BaseEntityInterface
     /**
      * @ORM\OneToMany(targetEntity=Performance::class, mappedBy="player")
      */
-    private $performances;
+    protected $performances;
 
     /**
      * @ORM\Column(type="string", length=255, name="photoName")
@@ -75,9 +68,9 @@ class Player implements BaseEntityInterface
         $this->performances = new ArrayCollection();
     }
 
-    public function getPlayerID(): ?int
+    public function getId(): ?int
     {
-        return $this->playerID;
+        return $this->id;
     }
 
     public function getFirstName(): ?string
@@ -205,11 +198,6 @@ class Player implements BaseEntityInterface
     public function setBase64(string $base64): void
     {
         $this->base64 = $base64;
-    }
-
-    public function getId()
-    {
-        return $this->playerID;
     }
 
     public function getFullName(): string

@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210106132813.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210106140657.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Performance.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Performance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PlayerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/EntityValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/EntityValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/player/playerList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/playerList.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +173,7 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="symfony server:stop" />
       <command value="symfony server:start" />
     </option>
   </component>
@@ -210,7 +218,12 @@
       <workItem from="1609676758257" duration="14948000" />
       <workItem from="1609797904545" duration="10000" />
       <workItem from="1609800571883" duration="1792000" />
-      <workItem from="1609802407591" duration="924000" />
+      <workItem from="1609802407591" duration="1264000" />
+      <workItem from="1609881193943" duration="670000" />
+      <workItem from="1609935017589" duration="3067000" />
+      <workItem from="1609938133292" duration="1780000" />
+      <workItem from="1609939949033" duration="1784000" />
+      <workItem from="1609941794631" duration="433000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -443,7 +456,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609802705578</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Login function, new Security Controller and UserAuth class">
+      <created>1609803549726</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1609803549726</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Login function, new Security Controller and UserAuth class">
+      <created>1609803564649</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1609803564649</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Delete place function" />
     <MESSAGE value="Get all clubs function" />
     <MESSAGE value="Add new club function" />
     <MESSAGE value="Fixed Add new club function" />
@@ -488,7 +514,8 @@
     <MESSAGE value="Edit performance function" />
     <MESSAGE value="Delete performance function" />
     <MESSAGE value="Added User entity, User provider, Security Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added User entity, User provider, Security Controller" />
+    <MESSAGE value="Login function, new Security Controller and UserAuth class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login function, new Security Controller and UserAuth class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
