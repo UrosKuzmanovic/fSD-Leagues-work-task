@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\PlaceManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,6 +25,7 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/list", name="place_list", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getPlaceList(): Response
     {
@@ -40,6 +42,7 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/add", name="add_place", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getAddPlace(): Response
     {
@@ -53,6 +56,7 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_place", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -71,6 +75,7 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/edit", name="get_edit_place", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      *
      * @return Response
@@ -90,6 +95,7 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_place", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -106,6 +112,7 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_place", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      * @return JsonResponse

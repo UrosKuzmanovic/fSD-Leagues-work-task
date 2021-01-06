@@ -32,4 +32,11 @@
             <td><a href="{{ path('add_performance') }}">Add</a></td>
         </tr>
     </table>
+
+    <br><br>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <p><a href="{{ path('app_logout') }}">Logout</a></p>
+    {% else %}
+        <p><a href="{{ path('app_login') }}">Login</a></p>
+    {% endif %}
 {% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Access denied{% endblock %}
+
+{% block body %}
+    <h1>You don't have permission to acces this page!</h1>
+    <h3><a href="{{ path('home') }}">Return to home page</a></h3>
+{% endblock %}

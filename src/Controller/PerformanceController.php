@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\PerformanceManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,6 +25,7 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/list", name="performance_list", methods={"GET"})
+     * @IsGranted("ROLE_USER")
      */
     public function getPerformanceList(): Response
     {
@@ -40,6 +42,7 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/add", name="add_performance", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getAddPlace(): Response
     {
@@ -53,6 +56,7 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_performance", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -82,6 +86,7 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/edit", name="get_edit_performance", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      *
      * @return Response
@@ -101,6 +106,7 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_performance", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -123,6 +129,7 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_performance", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      * @return JsonResponse

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Service\ClubManager;
 use App\Service\PlaceManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +30,7 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/list", name="club_list", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getClubList(): Response
     {
@@ -45,6 +47,7 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/add", name="add_club", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getAddClub(): Response
     {
@@ -61,6 +64,7 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_club", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -92,6 +96,7 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/edit", name="get_edit_club", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      *
      * @return Response
@@ -113,6 +118,7 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_club", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -142,6 +148,7 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_club", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      * @return JsonResponse

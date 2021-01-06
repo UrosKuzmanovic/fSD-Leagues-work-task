@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210106132813.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210106140657.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/denied.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Performance.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Performance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PlayerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlayerManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/EntityValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/EntityValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/player/playerList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/playerList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PerformanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PerformanceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +156,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/performance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/security" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
@@ -164,11 +164,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\security" />
       <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\performance" />
       <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\utakmica" />
       <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\mesto" />
       <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\klub" />
-      <recent name="C:\Users\Ookee\Desktop\fSD\fSD-zadatak-2-Lige\templates\igrac" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -223,7 +223,9 @@
       <workItem from="1609935017589" duration="3067000" />
       <workItem from="1609938133292" duration="1780000" />
       <workItem from="1609939949033" duration="1784000" />
-      <workItem from="1609941794631" duration="433000" />
+      <workItem from="1609941794631" duration="1770000" />
+      <workItem from="1609946742667" duration="1780000" />
+      <workItem from="1609948561259" duration="616000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -470,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609803564649</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Inheritance mapping for User and Player entities">
+      <created>1609942316012</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1609942316012</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +499,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Get all clubs function" />
     <MESSAGE value="Add new club function" />
     <MESSAGE value="Fixed Add new club function" />
     <MESSAGE value="Edit club function, fixed Edit place function" />
@@ -515,7 +523,8 @@
     <MESSAGE value="Delete performance function" />
     <MESSAGE value="Added User entity, User provider, Security Controller" />
     <MESSAGE value="Login function, new Security Controller and UserAuth class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login function, new Security Controller and UserAuth class" />
+    <MESSAGE value="Inheritance mapping for User and Player entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inheritance mapping for User and Player entities" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

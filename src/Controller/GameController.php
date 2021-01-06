@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Service\ClubManager;
 use App\Service\CompetitionManager;
 use App\Service\GameManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,6 +34,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/list", name="game_list", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getGameList(): Response
     {
@@ -49,6 +51,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/add", name="add_game", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getAddGames(): Response
     {
@@ -67,6 +70,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_game", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -97,6 +101,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/edit", name="get_edit_game", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      *
      * @return Response
@@ -120,6 +125,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_game", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -148,6 +154,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_game", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *

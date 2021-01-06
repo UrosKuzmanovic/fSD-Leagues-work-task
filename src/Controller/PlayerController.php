@@ -7,6 +7,7 @@ use App\Service\ClubManager;
 use App\Service\ImageManager;
 use App\Service\PlaceManager;
 use App\Service\PlayerManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,6 +39,7 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/list", name="player_list", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getPlayerList(): Response
     {
@@ -54,6 +56,7 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/add", name="add_player", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getAddPlayer(): Response
     {
@@ -74,6 +77,7 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_player", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -103,6 +107,7 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/edit", name="get_edit_player", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      *
      * @return Response
@@ -134,6 +139,7 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_player", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -161,6 +167,7 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_player", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
