@@ -3,41 +3,47 @@
 {% block title %}{{ editPerformance is defined ? 'Edit' : 'Add' }} performance{% endblock %}
 
 {% block body %}
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('performance_list') }}" class="btn btn-primary">LIST OF PERFORMANCES</a><br><br>
 
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('performance_list') }}">LIST OF PERFORMANCES</a></p>
+        <input id="perfID" hidden value="{{ editPerformance is defined ? editPerformance.performanceID : '' }}">
 
-    <input id="perfID" hidden value="{{ editPerformance is defined ? editPerformance.performanceID : '' }}">
+        <input id="gameID" hidden value="{{ editPerformance is defined ? editPerformance.game.gameID : '' }}"
+               class="form-control">
+        <label for="game">Game</label>
+        {% if editPerformance is defined %}
+            <select id="game" disabled class="form-control">
+                <option></option>
+            </select><br>
+        {% else %}
+            <select id="game" onchange="getPlayers()" class="form-control"></select><br>
+        {% endif %}
 
-    <input id="gameID" hidden value="{{ editPerformance is defined ? editPerformance.game.gameID : '' }}">
-    <label for="game">Game</label>
-    {% if editPerformance is defined %}
-        <select id="game" disabled>
-            <option></option>
-        </select><br>
-    {% else %}
-        <select id="game" onchange="getPlayers()"></select><br>
-    {% endif %}
+        <input id="playerID" hidden value="{{ editPerformance is defined ? editPerformance.player.playerID : '' }}"
+               class="form-control">
+        <label for="player">Player</label>
+        {% if editPerformance is defined %}
+            <select id="player" disabled class="form-control">
+                <option></option>
+            </select><br>
+        {% else %}
+            <select id="player" class="form-control"></select><br>
+        {% endif %}
 
-    <input id="playerID" hidden value="{{ editPerformance is defined ? editPerformance.player.playerID : '' }}">
-    <label for="player">Player</label>
-    {% if editPerformance is defined %}
-        <select id="player" disabled>
-            <option></option>
-        </select><br>
-    {% else %}
-        <select id="player"></select><br>
-    {% endif %}
+        <label for="rating">Player rating</label>
+        <input type="number" id="rating"
+               value="{{ editPerformance is defined ? editPerformance.playerRating : '' }}" class="form-control"><br>
+        <br>
 
-    <label for="rating">Player rating</label>
-    <input type="number" id="rating" value="{{ editPerformance is defined ? editPerformance.playerRating : '' }}"><br>
-    <br>
+        <button onclick="{{ editPerformance is defined ? 'editPerformance()' : 'addPerformance()' }}"
+                class="btn btn-primary">{{ editPerformance is defined ? 'Edit' : 'Add' }}
+            performance
+        </button>
 
-    <button onclick="{{ editPerformance is defined ? 'editPerformance()' : 'addPerformance()' }}">{{ editPerformance is defined ? 'Edit' : 'Add' }}
-        performance
-    </button>
-
-    <p id="error"></p>
+        <p id="error"></p>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

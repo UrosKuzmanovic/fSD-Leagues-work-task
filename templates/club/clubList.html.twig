@@ -1,33 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Club list{% endblock %}
+{% block title %}Clubs{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('add_club') }}">ADD NEW CLUB</a></p>
-    <table>
-        <thead>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('add_club') }}" class="btn btn-primary">ADD NEW CLUB</a><br><br>
+        <table class="table table-hover">
+            <thead style="font-weight: bold">
             <td>Name</td>
             <td>Place</td>
             <td></td>
             <td></td>
-        </thead>
-        {% for club in clubs %}
-            <tbody>
+            </thead>
+            {% for club in clubs %}
+                <tbody>
                 <tr id="row-{{ club.getClubID() }}">
                     <td>{{ club.getName() }}</td>
                     <td>{{ club.getPlace.getName() }}</td>
-                    <td><a href="{{ path("get_edit_club", {'id': club.getClubID }) }}">Edit</a></td>
-                    <td onclick="deleteClub({{ club.getClubID }}, 'row-{{ club.getClubID }}');">Delete</td>
+                    <td><a href="{{ path("get_edit_club", {'id': club.getClubID }) }}"
+                           style="cursor: pointer; color: dodgerblue;">Edit</a></td>
+                    <td onclick="deleteClub({{ club.getClubID }}, 'row-{{ club.getClubID }}')"
+                        style="cursor: pointer; color: dodgerblue;">Delete
+                    </td>
                 </tr>
-            </tbody>
-        {% endfor %}
-    </table>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}
     <script>
-        function deleteClub(id, row){
+        function deleteClub(id, row) {
             if (confirm("You are about to delete this club.")) {
                 $.ajax({
                     url: "{{ path('delete_club') }}",
@@ -36,8 +42,8 @@
                     data: {
                         'id': id
                     },
-                    success: function(){
-                        $('#'+row).remove();
+                    success: function () {
+                        $('#' + row).remove();
                         alert("Club was successfully deleted!");
                     }
                 })

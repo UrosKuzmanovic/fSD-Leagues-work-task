@@ -1,47 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Performance list{% endblock %}
+{% block title %}Performances{% endblock %}
 
 {% block body %}
-    {% if is_granted("ROLE_ADMIN") %}
-        <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-        <p><a href="{{ path('add_performance') }}">ADD NEW PERFORMANCE</a></p>
-    {% endif %}
-    <table>
-        <th>
-        <td>Player</td>
-        <td>Rating</td>
-        <td>Players club</td>
-        <td>Opposition club</td>
-        <td>Result</td>
-        <td>Competition</td>
-        <td>Date</td>
+    <div class="container">
+        <br>
         {% if is_granted("ROLE_ADMIN") %}
-            <td></td>
-            <td></td>
+            <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+            <a href="{{ path('add_performance') }}" class="btn btn-primary">ADD NEW PERFORMANCE</a>
+        {% else %}
+            <a href="{{ path('app_logout') }}" class="btn btn-primary">LOGOUT</a>
         {% endif %}
-        </th>
-        {% for performance in performances %}
-            <tr id="row-{{ performance.getPerformanceID() }}">
-                <td>{{ performance.getPlayer().getFullName() }}</td>
-                <td>{{ performance.getPlayerRating() }}</td>
-                <td>{{ performance.getPlayer().getClub().getName() }}</td>
-                <td>{{ performance.getGame().getHome().getName() !=  performance.getPlayer().getClub().getName() ?
-                    performance.getGame().getHome().getName() : performance.getGame().getAway().getName() }}</td>
-                <td>{{ performance.getGame().getHome().getName() ==  performance.getPlayer().getClub().getName() ?
-                    performance.getGame().getResult() : performance.getGame().getInverseResult() }}</td>
-                <td>{{ performance.getGame().getCompetition().GetCompetitionName() }}</td>
-                <td>{{ performance.getGame().getGameDate() | date('d/m/Y') }}</td>
-                {% if is_granted("ROLE_ADMIN") %}
-                    <td><a href="{{ path('get_edit_performance', {'id': performance.getPerformanceID()}) }}">Edit</a>
-                    </td>
-                    <td onclick="deletePerformance({{ performance.getPerformanceID }}, 'row-{{ performance.getPerformanceID() }}');">
-                        Delete
-                    </td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-    </table>
+        <br><br>
+        <table class="table table-hover">
+            <thead style="font-weight: bold">
+            <td>Player</td>
+            <td>Rating</td>
+            <td>Players club</td>
+            <td>Opposition club</td>
+            <td>Result</td>
+            <td>Competition</td>
+            <td>Date</td>
+            {% if is_granted("ROLE_ADMIN") %}
+                <td></td>
+                <td></td>
+            {% endif %}
+            </thead>
+            {% for performance in performances %}
+                <tr id="row-{{ performance.getPerformanceID() }}">
+                    <td>{{ performance.getPlayer().getFullName() }}</td>
+                    <td>{{ performance.getPlayerRating() }}</td>
+                    <td>{{ performance.getPlayer().getClub().getName() }}</td>
+                    <td>{{ performance.getGame().getHome().getName() !=  performance.getPlayer().getClub().getName() ?
+                        performance.getGame().getHome().getName() : performance.getGame().getAway().getName() }}</td>
+                    <td>{{ performance.getGame().getHome().getName() ==  performance.getPlayer().getClub().getName() ?
+                        performance.getGame().getResult() : performance.getGame().getInverseResult() }}</td>
+                    <td>{{ performance.getGame().getCompetition().GetCompetitionName() }}</td>
+                    <td>{{ performance.getGame().getGameDate() | date('d/m/Y') }}</td>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <td>
+                            <a href="{{ path('get_edit_performance', {'id': performance.getPerformanceID()}) }}"
+                               style="cursor: pointer; color: dodgerblue;">Edit</a>
+                        </td>
+                        <td onclick="deletePerformance({{ performance.getPerformanceID }}, 'row-{{ performance.getPerformanceID() }}');"
+                            style="cursor: pointer; color: dodgerblue;">
+                            Delete
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

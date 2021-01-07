@@ -1,3 +1,15 @@
 body {
     background-color: lightgray;
 }
+
+.delete-button {
+    cursor: pointer;
+    color: dodgerblue;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    text-underline: blue;
+}

@@ -3,10 +3,9 @@
 {% block title %}Access denied{% endblock %}
 
 {% block body %}
-    <h1>You don't have permission to acces this page!</h1>
-    {% if is_granted("ROLE_ADMIN") %}
-        <h3><a href="{{ path('home') }}">Return to home page</a></h3>
-    {% else %}
-        <h3><a href="{{ path('performance_list') }}">Return to performance list</a></h3>
-    {% endif %}
+    <div class="container">
+        <br>
+        <h1 style="text-align: center">You don't have permission to acces this page!</h1><br>
+        <h3 style="text-align: center"><a href="{{ path('performance_list') }}">Return to performance list</a></h3>
+    </div>
 {% endblock %}

@@ -1,26 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Place list{% endblock %}
+{% block title %}Places{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('add_place') }}">ADD NEW PLACE</a></p>
-    <table>
-        <th>
-        <td>PTT</td>
-        <td>Name</td>
-        <td></td>
-        <td></td>
-        </th>
-        {% for place in places %}
-            <tr id="row-{{ place.getPlaceID() }}">
-                <td>{{ place.getPtt() }}</td>
-                <td>{{ place.getName() }}</td>
-                <td><a href="{{ path('get_edit_place', {'id': place.getPlaceID()}) }}">Edit</a></td>
-                <td onclick="deletePlace({{ place.getPlaceID() }}, 'row-{{ place.getPlaceID() }}');">Delete</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('add_place') }}" class="btn btn-primary">ADD NEW PLACE</a><br><br>
+        <table class="table table-hover">
+            <thead style="font-weight: bold">
+            <td>PTT</td>
+            <td>Name</td>
+            <td></td>
+            <td></td>
+            </thead>
+            {% for place in places %}
+                <tr id="row-{{ place.getPlaceID() }}">
+                    <td>{{ place.getPtt() }}</td>
+                    <td>{{ place.getName() }}</td>
+                    <td><a href="{{ path('get_edit_place', {'id': place.getPlaceID()}) }}"
+                           style="cursor: pointer; color: dodgerblue;">Edit</a></td>
+                    <td onclick="deletePlace({{ place.getPlaceID() }}, 'row-{{ place.getPlaceID() }}');"
+                        style="cursor: pointer; color: dodgerblue;">Delete
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

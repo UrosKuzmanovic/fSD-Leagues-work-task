@@ -3,40 +3,43 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1>Welcome Admin!</h1>
-    <h2>Options:</h2>
-    <table>
-        <tr>
-            <td>Players</td>
-            <td><a href="{{ path('player_list') }}">List</a></td>
-            <td><a href="{{ path('add_player') }}">Add</a></td>
-        </tr>
-        <tr>
-            <td>Clubs</td>
-            <td><a href="{{ path('club_list') }}">List</a></td>
-            <td><a href="{{ path('add_club') }}">Add</a></td>
-        </tr>
-        <tr>
-            <td>Games</td>
-            <td><a href="{{ path('game_list') }}">List</a></td>
-            <td><a href="{{ path('add_game') }}">Add</a></td>
-        </tr>
-        <tr>
-            <td>Places</td>
-            <td><a href="{{ path('place_list') }}">List</a></td>
-            <td><a href="{{ path('add_place') }}">Add</a></td>
-        </tr>
-        <tr>
-            <td>Performances</td>
-            <td><a href="{{ path('performance_list') }}">List</a></td>
-            <td><a href="{{ path('add_performance') }}">Add</a></td>
-        </tr>
-    </table>
+    <div class="container">
+        <br>
+        <h1>Welcome Admin!</h1><br>
+        <h3>Options:</h3><br>
+        <table class="table table-hover">
+            <tr>
+                <td>Players</td>
+                <td><a href="{{ path('player_list') }}">List</a></td>
+                <td><a href="{{ path('add_player') }}">Add</a></td>
+            </tr>
+            <tr>
+                <td>Clubs</td>
+                <td><a href="{{ path('club_list') }}">List</a></td>
+                <td><a href="{{ path('add_club') }}">Add</a></td>
+            </tr>
+            <tr>
+                <td>Games</td>
+                <td><a href="{{ path('game_list') }}">List</a></td>
+                <td><a href="{{ path('add_game') }}">Add</a></td>
+            </tr>
+            <tr>
+                <td>Places</td>
+                <td><a href="{{ path('place_list') }}">List</a></td>
+                <td><a href="{{ path('add_place') }}">Add</a></td>
+            </tr>
+            <tr>
+                <td>Performances</td>
+                <td><a href="{{ path('performance_list') }}">List</a></td>
+                <td><a href="{{ path('add_performance') }}">Add</a></td>
+            </tr>
+        </table>
 
-    <br>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <p><a href="{{ path('app_logout') }}">Logout</a></p>
-    {% else %}
-        <p><a href="{{ path('app_login') }}">Login</a></p>
-    {% endif %}
+        <br>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path('app_logout') }}"class="btn btn-primary">Logout</a>
+        {% else %}
+            <a href="{{ path('app_login') }}"class="btn btn-primary">Login</a>
+        {% endif %}
+    </div>
 {% endblock %}

@@ -3,59 +3,71 @@
 {% block title %}{{ editGame is defined ? "Edit" : "Add" }} game{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('game_list') }}">LIST OF GAMES</a></p>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('game_list') }}" class="btn btn-primary">LIST OF GAMES</a><br><br>
 
-    <input id="gameID" hidden value="{{ editGame is defined ? editGame.getGameID() : '' }}">
+        <input id="gameID" hidden value="{{ editGame is defined ? editGame.getGameID() : '' }}">
 
-    <label for="home">Home team</label>
-    <select id="home">
-        {% for club in clubs %}
-            {% if editGame is defined %}
-                <option value="{{ club.getClubID() }}"
-                        {{ club.getClubID() == editGame.getHome().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
-            {% else %}
-                <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
-            {% endif %}
-        {% endfor %}
-    </select><br>
+        <label for="home">Home team</label>
+        <select id="home" class="form-control">
+            {% for club in clubs %}
+                {% if editGame is defined %}
+                    <option value="{{ club.getClubID() }}"
+                            {{ club.getClubID() == editGame.getHome().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
+                {% else %}
+                    <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br>
 
-    <label for="away">Away team</label>
-    <select id="away">
-        {% for club in clubs %}
-            {% if editGame is defined %}
-                <option value="{{ club.getClubID() }}"
-                        {{ club.getClubID() == editGame.getAway().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
-            {% else %}
-                <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
-            {% endif %}
-        {% endfor %}
-    </select><br>
+        <label for="away">Away team</label>
+        <select id="away" class="form-control">
+            {% for club in clubs %}
+                {% if editGame is defined %}
+                    <option value="{{ club.getClubID() }}"
+                            {{ club.getClubID() == editGame.getAway().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
+                {% else %}
+                    <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br>
 
-    <label>Result</label>
-    <input type="number" placeholder="Home" id="homeGoals"
-           value="{{ editGame is defined ? editGame.getHomeClubGoals() : "" }}"> -
-    <input type="number" placeholder="Away" id="awayGoals"
-           value="{{ editGame is defined ? editGame.getAwayClubGoals() : "" }}"><br>
+        <label>Result</label>
+        <div class="row">
+            <div class="col-5">
+                <input type="number" placeholder="Home" id="homeGoals"
+                       value="{{ editGame is defined ? editGame.getHomeClubGoals() : "" }}" class="form-control"></div>
+            <div class="col-2" style="text-align: center">-</div>
+            <div class="col-5">
+                <input type="number" placeholder="Away" id="awayGoals"
+                       value="{{ editGame is defined ? editGame.getAwayClubGoals() : "" }}" class="form-control"></div>
+        </div><br>
 
-    <label for="competition">Competition</label>
-    <select id="competition">
-        {% for competition in competitions %}
-            {% if editGame is defined %}
-                <option value="{{ competition.getCompetitionID() }}"
-                        {{ competition.getCompetitionID() == editGame.getCompetition().getCompetitionID() ? 'selected' : '' }}>{{ competition.getCompetitionName() }}</option>
-            {% else %}
-                <option value="{{ competition.getCompetitionID() }}">{{ competition.getCompetitionName() }}</option>
-            {% endif %}
-        {% endfor %}
-    </select><br>
+        <label for="competition">Competition</label>
+        <select id="competition" class="form-control">
+            {% for competition in competitions %}
+                {% if editGame is defined %}
+                    <option value="{{ competition.getCompetitionID() }}"
+                            {{ competition.getCompetitionID() == editGame.getCompetition().getCompetitionID() ? 'selected' : '' }}>{{ competition.getCompetitionName() }}</option>
+                {% else %}
+                    <option value="{{ competition.getCompetitionID() }}">{{ competition.getCompetitionName() }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br>
 
-    <label for="date">Date</label>
-    <input type="date" id="date" value="{{ editGame is defined ? editGame.getGameDateString() : '' }}"><br><br>
+        <label for="date">Date</label>
+        <input type="date" id="date" value="{{ editGame is defined ? editGame.getGameDateString() : '' }}"
+               class="form-control"><br><br>
 
-    <button onclick={{ editGame is defined ? "editGame()" : "addGame()" }}>{{ editGame is defined ? "Edit" : "Add" }} game</button>
+        <button onclick="{{ editGame is defined ? "editGame()" : "addGame()" }}"
+                class="btn btn-primary">{{ editGame is defined ? "Edit" : "Add" }}
+            game
+        </button>
 
-    <p id="error"></p>
+        <p id="error"></p>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

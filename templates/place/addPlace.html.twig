@@ -3,20 +3,29 @@
 {% block title %}{{ editPlace is defined ? 'Edit' : 'Add' }} place{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('place_list') }}">LIST OF PLACES</a></p>
-    <input id="placeID" hidden value="{{ editPlace is defined ? editPlace.getPlaceID() : '' }}">
-    <label for="ptt">PTT</label>
-    <input type="number" id="ptt" value="{{ editPlace is defined ? editPlace.getPtt() : '' }}">
-    <br><br>
-    <label for="name">Name</label>
-    <input type="text" id="name" value="{{ editPlace is defined ? editPlace.getName() : '' }}">
-    <br><br>
-    <button id="add-place"
-            onclick="{{ editPlace is defined ? 'editPlace()' : 'addPlace()' }}">{{ editPlace is defined ? 'Edit' : 'Add' }}
-        place
-    </button>
-    <p id="error"></p>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('place_list') }}" class="btn btn-primary">LIST OF PLACES</a><br><br>
+
+        <input id="placeID" hidden value="{{ editPlace is defined ? editPlace.getPlaceID() : '' }}"
+               class="form-control">
+
+        <label for="ptt">PTT</label>
+        <input type="number" id="ptt" value="{{ editPlace is defined ? editPlace.getPtt() : '' }}" class="form-control">
+        <br>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" value="{{ editPlace is defined ? editPlace.getName() : '' }}" class="form-control">
+        <br><br>
+
+        <button id="add-place"
+                onclick="{{ editPlace is defined ? 'editPlace()' : 'addPlace()' }}"
+                class="btn btn-primary">{{ editPlace is defined ? 'Edit' : 'Add' }}
+            place
+        </button>
+        <p id="error"></p>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

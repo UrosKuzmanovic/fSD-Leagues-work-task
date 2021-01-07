@@ -1,34 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Game list{% endblock %}
+{% block title %}Games{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('add_game') }}">ADD NEW GAME</a></p>
-    <table>
-        <thead>
-        <td>Home</td>
-        <td>Away</td>
-        <td>Result</td>
-        <td>Competition</td>
-        <td>Date</td>
-        <td></td>
-        <td></td>
-        </thead>
-        {% for game in games %}
-            <tbody>
-            <tr id="row-{{ game.getGameID() }}">
-                <td>{{ game.getHome.getName() }}</td>
-                <td>{{ game.getAway.getName() }}</td>
-                <td>{{ game.getResult() }}</td>
-                <td>{{ game.getCompetition.getCompetitionName() }}</td>
-                <td>{{ game.getGameDate() | date('d/m/Y') }}</td>
-                <td><a href="{{ path("get_edit_game", {'id': game.getGameID()}) }}">Edit</a></td>
-                <td onclick="deleteGame({{ game.getGameID }}, 'row-{{ game.getGameID }}');">Delete</td>
-            </tr>
-            </tbody>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('add_game') }}" class="btn btn-primary">ADD NEW GAME</a><br><br>
+        <table class="table table-hover">
+            <thead style="font-weight: bold">
+            <td>Home</td>
+            <td>Away</td>
+            <td>Result</td>
+            <td>Competition</td>
+            <td>Date</td>
+            <td></td>
+            <td></td>
+            </thead>
+            {% for game in games %}
+                <tbody>
+                <tr id="row-{{ game.getGameID() }}">
+                    <td>{{ game.getHome.getName() }}</td>
+                    <td>{{ game.getAway.getName() }}</td>
+                    <td>{{ game.getResult() }}</td>
+                    <td>{{ game.getCompetition.getCompetitionName() }}</td>
+                    <td>{{ game.getGameDate() | date('d/m/Y') }}</td>
+                    <td><a href="{{ path("get_edit_game", {'id': game.getGameID()}) }}"
+                           style="cursor: pointer; color: dodgerblue;">Edit</a></td>
+                    <td onclick="deleteGame({{ game.getGameID }}, 'row-{{ game.getGameID }}');"
+                        style="cursor: pointer; color: dodgerblue;">Delete
+                    </td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

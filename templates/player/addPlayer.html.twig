@@ -3,77 +3,85 @@
 {% block title %}{{ editPlayer is defined ? 'Edit' : 'Add' }} player{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('player_list') }}">LIST OF PLAYERS</a></p>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('player_list') }}" class="btn btn-primary">LIST OF PLAYERS</a><br><br>
 
-    <input id="playerID" value="{{ editPlayer is defined ? editPlayer.getId() : '' }}" hidden>
+        <input id="playerID" value="{{ editPlayer is defined ? editPlayer.getId() : '' }}" hidden>
 
-    <label for="firstName">First name</label>
-    <input type="text" id="firstName" value="{{ editPlayer is defined ? editPlayer.getFirstName() : '' }}"><br>
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" value="{{ editPlayer is defined ? editPlayer.getFirstName() : '' }}"
+               class="form-control"><br>
 
-    <label for="lastName">Last name</label>
-    <input type="text" id="lastName" value="{{ editPlayer is defined ? editPlayer.getLastName() : '' }}"><br>
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" value="{{ editPlayer is defined ? editPlayer.getLastName() : '' }}"
+               class="form-control"><br>
 
-    <label for="email">E-mail</label>
-    <input type="text" id="email" value="{{ editPlayer is defined ? editPlayer.getEmail() : '' }}"><br>
+        <label for="email">E-mail</label>
+        <input type="text" id="email" value="{{ editPlayer is defined ? editPlayer.getEmail() : '' }}"
+               class="form-control"><br>
 
-    {% if editPlayer is not defined %}
-        <label for="password">Password</label>
-        <input type="password" id="password"><br>
-    {% endif %}
+        {% if editPlayer is not defined %}
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control"><br>
+        {% endif %}
 
-    <label for="jmbg">JMBG</label>
-    <input type="text" id="jmbg" value="{{ editPlayer is defined ? editPlayer.getJmbg() : '' }}"><br>
+        <label for="jmbg">JMBG</label>
+        <input type="text" id="jmbg" value="{{ editPlayer is defined ? editPlayer.getJmbg() : '' }}"
+               class="form-control"><br>
 
-    <label for="dateOfBirth">Date of birth</label>
-    <input type="date" id="dateOfBirth"
-           value="{{ editPlayer is defined ? editPlayer.getDateOfBirthString() : '' }}"><br>
+        <label for="dateOfBirth">Date of birth</label>
+        <input type="date" id="dateOfBirth"
+               value="{{ editPlayer is defined ? editPlayer.getDateOfBirthString() : '' }}" class="form-control"><br>
 
-    <label for="positions">Position</label>
-    <select id="position">
-        {% for position in positions %}
-            {% if editPlayer is defined %}
-                <option value="{{ position }}" {{ position == editPlayer.getPositions() ? 'selected' : '' }}>{{ position }}</option>
-            {% else %}
-                <option value="{{ position }}">{{ position }}</option>
-            {% endif %}
-        {% endfor %}
-    </select><br>
+        <label for="positions">Position</label>
+        <select id="position" class="form-control">
+            {% for position in positions %}
+                {% if editPlayer is defined %}
+                    <option value="{{ position }}" {{ position == editPlayer.getPositions() ? 'selected' : '' }}>{{ position }}</option>
+                {% else %}
+                    <option value="{{ position }}">{{ position }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br>
 
-    <label for="place">Place</label>
-    <select id="place">
-        {% for place in places %}
-            {% if editPlayer is defined %}
-                <option value="{{ place.getPlaceID() }}" {{ place.getPlaceID() == editPlayer.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
-            {% else %}
-                <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
-            {% endif %}
-        {% endfor %}
-    </select><br>
+        <label for="place">Place</label>
+        <select id="place" class="form-control">
+            {% for place in places %}
+                {% if editPlayer is defined %}
+                    <option value="{{ place.getPlaceID() }}" {{ place.getPlaceID() == editPlayer.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
+                {% else %}
+                    <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br>
 
-    <label for="club">Club</label>
-    <select id="club">
-        {% for club in clubs %}
-            {% if editPlayer is defined %}
-                <option value="{{ club.getClubID() }}" {{ club.getClubID() == editPlayer.getClub().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
-            {% else %}
-                <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
-            {% endif %}
-        {% endfor %}
-    </select><br>
+        <label for="club">Club</label>
+        <select id="club" class="form-control">
+            {% for club in clubs %}
+                {% if editPlayer is defined %}
+                    <option value="{{ club.getClubID() }}" {{ club.getClubID() == editPlayer.getClub().getClubID() ? 'selected' : '' }}>{{ club.getName() }}</option>
+                {% else %}
+                    <option value="{{ club.getClubID() }}">{{ club.getName() }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br>
 
-    <label for="photo">Photo</label>
-    <input id="photo" type="file" onchange="preparePhoto()"><br>
+        <label for="photo">Photo</label>
+        <input id="photo" type="file" onchange="preparePhoto()" class="form-control-file"><br>
 
-    <img id="img-preview" src="{{ editPlayer is defined ? editPlayer.getBase64() : '#' }}" alt="Image preview"
-         width="auto" height="250px"><br><br>
+        <img id="img-preview" src="{{ editPlayer is defined ? editPlayer.getBase64() : '#' }}" alt="Image preview"
+             width="auto" height="250px"><br><br>
 
-    <button id="add-player"
-            onclick="{{ editPlayer is defined ? 'editPlayer()' : 'addPlayer()' }}">{{ editPlayer is defined ? "Edit" : "Add" }}
-        player
-    </button>
+        <button id="add-player"
+                onclick="{{ editPlayer is defined ? 'editPlayer()' : 'addPlayer()' }}"
+                class="btn btn-primary">{{ editPlayer is defined ? "Edit" : "Add" }}
+            player
+        </button>
 
-    <p id="error"></p>
+        <p id="error"></p>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

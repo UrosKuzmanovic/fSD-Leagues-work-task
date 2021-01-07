@@ -3,34 +3,40 @@
 {% block title %}Player list{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('add_player') }}">ADD NEW PLAYER</a></p>
-    <table>
-        <th>
-        <td>First name</td>
-        <td>Last name</td>
-        <td>JMBG</td>
-        <td>Date of birth</td>
-        <td>Position</td>
-        <td>Place</td>
-        <td>Club</td>
-        <td></td>
-        <td></td>
-        </th>
-        {% for player in players %}
-            <tr id="row-{{ player.getId() }}">
-                <td>{{ player.getFirstName() }}</td>
-                <td>{{ player.getLastName() }}</td>
-                <td>{{ player.getJmbg() }}</td>
-                <td>{{ player.getDateOfBirth() | date('d/m/Y') }}</td>
-                <td>{{ player.getPositions() }}</td>
-                <td>{{ player.getPlace.getName() }}</td>
-                <td>{{ player.getClub.getName() }}</td>
-                <td><a href="{{ path("get_edit_player", {'id':player.getId()}) }}">Edit</a></td>
-                <td onclick="deletePlayer({{ player.getId() }}, 'row-{{ player.getId() }}');">Delete</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('add_player') }}" class="btn btn-primary">ADD NEW PLAYER</a><br><br>
+        <table class="table table-hover">
+            <thead style="font-weight: bold">
+            <td>First name</td>
+            <td>Last name</td>
+            <td>JMBG</td>
+            <td>Date of birth</td>
+            <td>Position</td>
+            <td>Place</td>
+            <td>Club</td>
+            <td></td>
+            <td></td>
+            </thead>
+            {% for player in players %}
+                <tr id="row-{{ player.getId() }}">
+                    <td>{{ player.getFirstName() }}</td>
+                    <td>{{ player.getLastName() }}</td>
+                    <td>{{ player.getJmbg() }}</td>
+                    <td>{{ player.getDateOfBirth() | date('d/m/Y') }}</td>
+                    <td>{{ player.getPositions() }}</td>
+                    <td>{{ player.getPlace.getName() }}</td>
+                    <td>{{ player.getClub.getName() }}</td>
+                    <td><a href="{{ path("get_edit_player", {'id':player.getId()}) }}"
+                           style="cursor: pointer; color: dodgerblue;">Edit</a></td>
+                    <td onclick="deletePlayer({{ player.getId() }}, 'row-{{ player.getId() }}');"
+                        style="cursor: pointer; color: dodgerblue;">Delete
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}

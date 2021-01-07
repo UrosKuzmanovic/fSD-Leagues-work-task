@@ -3,26 +3,31 @@
 {% block title %}{{ editClub is defined ? "Edit" : "Add" }} club{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('home') }}">BACK TO HOME PAGE</a></p>
-    <p><a href="{{ path('club_list') }}">LIST OF CLUBS</a></p>
-    <input id="clubID" value="{{ editClub is defined ? editClub.getClubID() : '' }}" hidden>
-    <label for="name">Name</label>
-    <input type="text" id="name" value="{{ editClub is defined ? editClub.getName() : '' }}"><br>
-    <label for="places-select">Place</label>
-    <select id="places-select" name="places">
-        {% for place in places %}
-            {% if editClub is defined %}
-                <option value="{{ place.getPlaceID() }}" {{ place.getPlaceID() == editClub.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
-            {% else %}
-                <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
-            {% endif %}
-        {% endfor %}
-    </select><br><br>
-    <button id="add-club"
-            onclick="{{ editClub is defined ? 'editClub()' : 'addClub()' }}">{{ editClub is defined ? "Edit" : "Add" }}
-        club
-    </button>
-    <p id="error"></p>
+    <div class="container">
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-primary">BACK TO HOME PAGE</a>
+        <a href="{{ path('club_list') }}" class="btn btn-primary">LIST OF CLUBS</a><br><br>
+        <input id="clubID" value="{{ editClub is defined ? editClub.getClubID() : '' }}" hidden>
+        <label for="name">Name</label>
+        <input type="text" id="name" value="{{ editClub is defined ? editClub.getName() : '' }}"
+               class="form-control"><br>
+        <label for="places-select">Place</label>
+        <select id="places-select" name="places" class="form-control">
+            {% for place in places %}
+                {% if editClub is defined %}
+                    <option value="{{ place.getPlaceID() }}" {{ place.getPlaceID() == editClub.getPlace().getPlaceID() ? 'selected' : '' }}>{{ place.getName() }}</option>
+                {% else %}
+                    <option value="{{ place.getPlaceID() }}">{{ place.getName() }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br><br>
+        <button id="add-club"
+                onclick="{{ editClub is defined ? 'editClub()' : 'addClub()' }}"
+                class="btn btn-primary">{{ editClub is defined ? "Edit" : "Add" }}
+            club
+        </button>
+        <p id="error"></p>
+    </div>
 {% endblock %}
 
 {% block myJavascripts %}
