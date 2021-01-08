@@ -69,6 +69,11 @@ class Player extends User implements BaseEntityInterface
 
     private $base64;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $createdBy;
+
     public function __construct()
     {
         $this->performances = new ArrayCollection();
@@ -242,5 +247,17 @@ class Player extends User implements BaseEntityInterface
     public function setUser($user): void
     {
         $this->user = $user;
+    }
+
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(string $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
     }
 }

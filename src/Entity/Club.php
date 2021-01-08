@@ -45,6 +45,11 @@ class Club implements BaseEntityInterface
      */
     private $place;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $createdBy;
+
     public function __construct()
     {
         $this->players = new ArrayCollection();
@@ -174,5 +179,17 @@ class Club implements BaseEntityInterface
     public function getId()
     {
         return $this->clubID;
+    }
+
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(string $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
     }
 }

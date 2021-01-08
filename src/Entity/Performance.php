@@ -33,6 +33,11 @@ class Performance
      */
     private $game;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $createdBy;
+
     public function getPerformanceID(): ?int
     {
         return $this->performanceID;
@@ -70,6 +75,18 @@ class Performance
     public function setGame(?Game $game): self
     {
         $this->game = $game;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(string $createdBy): self
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }

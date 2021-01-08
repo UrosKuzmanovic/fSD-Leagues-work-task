@@ -2,22 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e44db03-6cf1-4e34-94d0-040a7afa78e2" name="Default Changelist" comment="Delete place function">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210108192437.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listeners/ClubListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listeners/EntityListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listeners/GameListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listeners/PerformanceListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listeners/PlaceListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listeners/PlayerListener.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/club/addClub.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/addClub.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/club/clubList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/clubList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/addGame.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/addGame.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/gameList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/gameList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/addPerformance.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/performance/performanceList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/place/addPlace.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/addPlace.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/place/placeList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place/placeList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/addPlayer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/player/playerList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/player/playerList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PerformanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PerformanceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Club.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Club.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Performance.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Performance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Place.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Place.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Player.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Player.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Subscribers/ImageSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Listeners/ImageListener.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/denied.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/denied.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +166,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/security" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Listeners" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
@@ -236,7 +241,12 @@
       <workItem from="1609965062281" duration="1340000" />
       <workItem from="1610044758029" duration="1771000" />
       <workItem from="1610046577605" duration="1780000" />
-      <workItem from="1610048391616" duration="306000" />
+      <workItem from="1610048391616" duration="563000" />
+      <workItem from="1610124778428" duration="9000" />
+      <workItem from="1610131304183" duration="1778000" />
+      <workItem from="1610133136632" duration="1780000" />
+      <workItem from="1610134948513" duration="1781000" />
+      <workItem from="1610136770292" duration="1553000" />
     </task>
     <task id="LOCAL-00001" summary="Added Entities">
       <created>1608657273108</created>
@@ -504,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609966334418</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added bootstrap classes and styles">
+      <created>1610048913776</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1610048913776</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,7 +541,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Edit club function, fixed Edit place function" />
     <MESSAGE value="Delete club function" />
     <MESSAGE value="Get all players function" />
     <MESSAGE value="Add new player function" />
@@ -549,7 +565,8 @@
     <MESSAGE value="Inheritance mapping for User and Player entities" />
     <MESSAGE value="Access control for CRUD operations" />
     <MESSAGE value="Redirecting according to different roles, player can view only his performances" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redirecting according to different roles, player can view only his performances" />
+    <MESSAGE value="Added bootstrap classes and styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added bootstrap classes and styles" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

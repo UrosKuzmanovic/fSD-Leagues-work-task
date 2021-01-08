@@ -77,7 +77,6 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_player", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -139,7 +138,6 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_player", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -167,7 +165,6 @@ class PlayerController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_player", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -188,6 +185,8 @@ class PlayerController extends AbstractController
                     'ignored_attributes' => [
                         'club',
                         'place',
+                        'user',
+                        'performances',
                     ],
                 ]
             )
@@ -218,7 +217,7 @@ class PlayerController extends AbstractController
                         'club',
                         'place',
                         'performances',
-                        'user'
+                        'user',
                     ],
                 ]
             )

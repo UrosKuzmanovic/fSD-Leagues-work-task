@@ -64,7 +64,6 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_club", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -84,8 +83,8 @@ class ClubController extends AbstractController
                 'json',
                 [
                     'ignored_attributes' => [
-                        'matchesHome',
-                        'matchesAway',
+                        'gamesHome',
+                        'gamesAway',
                         'players',
                         'place',
                     ],
@@ -118,7 +117,6 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_club", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -136,8 +134,8 @@ class ClubController extends AbstractController
                 'json',
                 [
                     'ignored_attributes' => [
-                        'matchesHome',
-                        'matchesAway',
+                        'gamesHome',
+                        'gamesAway',
                         'players',
                         'place',
                     ],
@@ -148,7 +146,6 @@ class ClubController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_club", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      * @return JsonResponse
@@ -163,8 +160,8 @@ class ClubController extends AbstractController
         return new JsonResponse($serializer->serialize($clubs, 'json',
             [
                 'ignored_attributes' => [
-                    'matchesHome',
-                    'matchesAway',
+                    'gamesHome',
+                    'gamesAway',
                     'players',
                     'place',
                 ],

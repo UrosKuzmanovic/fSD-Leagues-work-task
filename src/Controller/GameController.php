@@ -70,7 +70,6 @@ class GameController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_game", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -125,7 +124,6 @@ class GameController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_game", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -154,7 +152,6 @@ class GameController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_game", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *

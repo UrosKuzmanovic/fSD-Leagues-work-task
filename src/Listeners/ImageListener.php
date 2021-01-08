@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Subscribers;
+namespace App\Listeners;
 
 
 use App\Entity\Player;
@@ -10,7 +10,7 @@ use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Events;
 
-class ImageSubscriber implements EventSubscriber
+class ImageListener implements EventSubscriber
 {
     private $imageManager;
 
@@ -19,7 +19,7 @@ class ImageSubscriber implements EventSubscriber
         $this->imageManager = $imageManager;
     }
 
-    public function getSubscribedEvents()
+    public function getSubscribedEvents(): array
     {
         return [
             Events::postRemove,

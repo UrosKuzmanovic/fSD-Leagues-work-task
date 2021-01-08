@@ -62,7 +62,6 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_performance", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -114,7 +113,6 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_performance", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -144,7 +142,6 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_performance", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *

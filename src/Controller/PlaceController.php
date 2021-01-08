@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\PlaceManager;
+use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -56,7 +57,6 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/add-new", name="post_place", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -95,7 +95,6 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/edit", name="edit_place", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      *
@@ -112,7 +111,6 @@ class PlaceController extends AbstractController
 
     /**
      * @Route("/delete", name="delete_place", methods={"POST"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Request             $request
      * @param SerializerInterface $serializer
      * @return JsonResponse

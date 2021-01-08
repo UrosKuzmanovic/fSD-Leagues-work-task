@@ -57,6 +57,11 @@ class Game implements BaseEntityInterface
      */
     private $awayClubGoals;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $createdBy;
+
     public function __construct()
     {
         $this->performances = new ArrayCollection();
@@ -207,5 +212,17 @@ class Game implements BaseEntityInterface
     public function getId()
     {
         return $this->gameID;
+    }
+
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(string $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
     }
 }
